@@ -11,7 +11,7 @@ import UIKit
 
 class PhotoCollectionCell: UICollectionViewCell {
     
-    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +24,7 @@ class PhotoCollectionCell: UICollectionViewCell {
             guard let `self` = self else { return }
             
             guard let image = image, error == nil else {
-                return
+                preconditionFailure((error?.errorDescription!)!)
             }
             
             DispatchQueue.main.async {
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private let downloadablePhotoLinks = ["https://images.unsplash.com/photo-1464550883968-cec281c19761",
+    private let downloadablePhotoLinks = ["https://images.unsplash.com/photo-1464550883968-cec281c197619",
                                       "https://images.unsplash.com/photo-1464550838636-1a3496df938b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=67b8dcbfc47e2ba3f39d2d01a8177864",
                                       "https://images.unsplash.com/photo-1464547323744-4edd0cd0c746?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=17b4934ff6fe2e8773896c87aa4ae85b",
                                       "https://images.unsplash.com/photo-1464545022782-925ec69295ef?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=9af697a854378fe9e922dd8ebc6ec039",
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
                                       "https://images.unsplash.com/photo-1464545022782-925ec69295ef?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=9af697a854378fe9e922dd8ebc6ec039",
                                       "https://images.unsplash.com/photo-1464537356976-89e35dfa63ee?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=3e32e4760e959e86133eb08418ed5fc5",
                                       
-                                      "https://images.unsplash.com/photo-1464550883968-cec281c19761",
+                                          "https://images.unsplash.com/photo-1464550883968-cec281c19761",
                                       "https://images.unsplash.com/photo-1464550838636-1a3496df938b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=67b8dcbfc47e2ba3f39d2d01a8177864",
                                       "https://images.unsplash.com/photo-1464547323744-4edd0cd0c746?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=17b4934ff6fe2e8773896c87aa4ae85b",
                                       "https://images.unsplash.com/photo-1464545022782-925ec69295ef?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=9af697a854378fe9e922dd8ebc6ec039",
@@ -93,14 +93,19 @@ extension ViewController: UICollectionViewDataSource {
         
         let photoURLString = downloadablePhotoLinks[indexPath.row]
         
-        guard let photoURL = URL(string: photoURLString) else {
-            return UICollectionViewCell()
+        let customCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionCell", for: indexPath)
+        
+        guard let cell = customCell as? PhotoCollectionCell else {
+            return customCell
         }
         
-        let customCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionCell", for: indexPath) as! PhotoCollectionCell
-        customCell.configureImage(withURL: photoURL)
+        guard let photoURL = URL(string: photoURLString) else {
+            return customCell
+        }
         
-        return customCell
+        cell.configureImage(withURL: photoURL)
+        
+        return cell
     }
 }
 

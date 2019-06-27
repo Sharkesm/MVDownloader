@@ -16,8 +16,8 @@ public enum MVDownloaderError: Error {
     case unknown
 }
 
-extension MVDownloaderError {
-    public var localizedDescription: String {
+extension MVDownloaderError: LocalizedError {
+    public var errorDescription: String? {
         switch self {
         case .requestCancelled:
             return "The requested was explicitly cancelled"
