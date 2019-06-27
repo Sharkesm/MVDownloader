@@ -24,7 +24,7 @@ class PhotoCollectionCell: UICollectionViewCell {
             guard let `self` = self else { return }
             
             guard let image = image, error == nil else {
-                preconditionFailure((error?.errorDescription!)!)
+                return 
             }
             
             DispatchQueue.main.async {

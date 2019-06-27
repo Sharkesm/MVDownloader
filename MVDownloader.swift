@@ -13,7 +13,9 @@ public class MVDownloader {
     
     private let session: URLSession
     private let urlCache: URLCache
-
+    
+    private let imageCacheManager = MVImageCache()
+    
     public static var shared: MVDownloader = MVDownloader(urlCache: MVDownloader.defaultURLCache())
     
     init(urlCache: URLCache = MVDownloader.defaultURLCache()) {
@@ -38,7 +40,7 @@ public extension MVDownloader {
     
     static func defaultURLCache() -> URLCache {
         return URLCache(
-                    memoryCapacity: 80 * 1024 * 1024, // 80MB
+                    memoryCapacity: 80 * 1024 * 1024, // 80MB memory capacity
                     diskCapacity: 0,
                     diskPath: nil
                 )
@@ -47,7 +49,14 @@ public extension MVDownloader {
     
     func downloadImage(from url: URL, completion: @escaping (_ image: MVImage?, _ error: MVDownloaderError?) -> Void) -> Void {
         
-        session.dataTask(with: url) { (data, urlResponse, error) in
+        if imageCacheManager.isImageCached(withIdentifier: (url as NSURL)) == .available {
+            if let cachedImage = imageCacheManager.filterImage(withIdentifier: (url as NSURL)) {
+                completion(cachedImage, nil)
+            }
+            return
+        }
+        
+        let request = session.dataTask(with: url) { [unowned self] (data, urlResponse, error) in
             
             guard error == nil else {
                 completion(nil, .responseFailed)
@@ -59,9 +68,13 @@ public extension MVDownloader {
                 return
             }
             
+            self.imageCacheManager.add(image, withIdentifier: (url as NSURL))
+
             completion(image, nil)
             
-        }.resume()
+        }
+            
+        request.resume()
     }
     
 }
