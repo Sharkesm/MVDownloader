@@ -47,6 +47,24 @@ public extension MVDownloader {
     }
     
     
+    func clearCache(for url: URL) {
+        
+        let request = URLRequest(url: url)
+        urlCache.removeCachedResponse(for: request)
+        
+        // Remove cached image if it exists
+        if imageCacheManager.isImageCached(withIdentifier: (url as NSURL)) == .available {
+            _ = imageCacheManager.removeImage(withIdentifier: (url as NSURL))
+        }
+    }
+    
+    
+    func clearCache() {
+        imageCacheManager.clearCache()
+        urlCache.removeAllCachedResponses()
+    }
+    
+    
     func downloadImage(from url: URL, completion: @escaping (_ image: MVImage?, _ error: MVDownloaderError?) -> Void) -> Void {
         
         if imageCacheManager.isImageCached(withIdentifier: (url as NSURL)) == .available {
