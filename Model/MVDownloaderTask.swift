@@ -8,12 +8,16 @@
 
 import Foundation
 
+
 class MVDownloaderTask {
     
     var request: URLRequest
+    var responseHandlers: [String: ResponseHandler]
     
-    init(_ request: URLRequest) {
+    init(_ request: URLRequest, handlerID: String, responseHandler: ResponseHandler) {
         self.request = request
+        self.responseHandlers = [:]
+        self.responseHandlers[handlerID] = responseHandler
     }
     
     var task: URLSessionTask?

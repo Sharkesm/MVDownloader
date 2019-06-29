@@ -8,84 +8,6 @@
 
 import Foundation
 
-public class MVDownloaderTaskService {
-    
-    private var activeDownloadTask: [URLRequest: MVDownloaderTask]
-    
-    
-    init() {
-        activeDownloadTask = [:]
-    }
-    
-    
-    func addDownloadTask(_ task: MVDownloaderTask) {
-    
-        task.isDownloading = true
-        activeDownloadTask[task.request] = task
-        
-        print("Added request: ", task.request.url as Any)
-        print("Active Requests: ", activeDownloadTask.count)
-    }
-    
-    
-    func hasDownloadTask(for request: URLRequest) -> Bool {
-        return (activeDownloadTask[request] != nil) ? true : false
-    }
-    
-
-    func getDownloadTask(withRequest request: URLRequest) -> MVDownloaderTask? {
-        
-        let requests = activeDownloadTask.keys
-        
-        if requests.contains(request) {
-            return activeDownloadTask[request]
-        }
-        
-        return nil
-    }
-    
-    
-    func cancelDownloadTask(withRequest request: URLRequest) {
-        
-        guard let downloadTask = activeDownloadTask[request] else { return }
-        
-        downloadTask.task?.cancel()
-        activeDownloadTask[request] = nil
-    }
-    
-    
-    @discardableResult
-    func removeDownloadTask(_ task: MVDownloaderTask) -> MVDownloaderTask? {
-        
-        guard let downloadTask = activeDownloadTask[task.request] else { return nil }
-        
-        if let sessionTask = downloadTask.task {
-            print("Cancelling session: ", downloadTask.request.url as Any)
-           sessionTask.cancel()
-           activeDownloadTask[task.request]?.isDownloading = false
-        }
-        
-        if let removedTask = activeDownloadTask.removeValue(forKey: task.request) {
-            print("Remove completed task: ", removedTask.request.url as Any)
-            return removedTask
-        }
-        
-        return nil
-    }
-    
-    
-    @discardableResult
-    func removeAll() -> Bool {
-        for downloadTask in activeDownloadTask {
-            if let sessionTask = downloadTask.value.task {
-                sessionTask.cancel()
-                _ = activeDownloadTask.removeValue(forKey: downloadTask.key)
-            }
-        }
-        
-        return true
-    }
-}
 
 public class MVDownloader {
     
@@ -94,7 +16,6 @@ public class MVDownloader {
     
     private let imageCacheManager = MVImageCache()
     private let downloadTaskService: MVDownloaderTaskService = MVDownloaderTaskService()
-    
     
     public static var shared: MVDownloader = MVDownloader(urlCache: MVDownloader.defaultURLCache())
     
@@ -147,32 +68,35 @@ public extension MVDownloader {
     }
     
     
-    func downloadTask(request: URLRequest, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    func downloadTask(request: URLRequest, completion: @escaping CompletionHandler) {
         
+        let handlerID = UUID().uuidString
+        
+        let responseHanlder = ResponseHandler(handlerID: handlerID, completion: completion)
+        
+        let downloaderTask = MVDownloaderTask(request, handlerID: handlerID, responseHandler: responseHanlder)
+
         if downloadTaskService.hasDownloadTask(for: request) {
-            completion(nil, nil, MVDownloaderError.unknown)
+            downloadTaskService.addCompletionHandler(for: request, handler: responseHanlder)
             return
         }
 
-        let downloaderTask = MVDownloaderTask(request)
-        
-        downloaderTask.task = session.dataTask(with: request) { [weak self] (data, response, error) in
+        downloaderTask.task = session.dataTask(with: request) { [weak self] (data, _, error) in
 
             guard let `self` = self else { return }
-            
+
             guard error == nil else {
-                completion(nil, nil, MVDownloaderError.unknown)
+                self.downloadTaskService.invokeCompletionHandler(for: request, withResponse: ResponseData(data: nil, error:  MVDownloaderError.unknown))
                 return
             }
 
-            guard let data = data, let response = response else {
-                completion(nil, nil, MVDownloaderError.unknown)
+            guard let data = data else {
+                self.downloadTaskService.invokeCompletionHandler(for: request, withResponse: ResponseData(data: nil, error: MVDownloaderError.responseFailed))
                 return
             }
+
+            self.downloadTaskService.invokeCompletionHandler(for: request, withResponse: ResponseData(data: data, error: nil))
             
-            self.downloadTaskService.removeDownloadTask(downloaderTask)
-            
-            completion(data, response, nil)
         }
 
         downloadTaskService.addDownloadTask(downloaderTask)
@@ -181,13 +105,11 @@ public extension MVDownloader {
     }
     
     
+    
     func downloadImage(from url: URL, completion: @escaping (_ image: MVImage?, _ error: MVDownloaderError?) -> Void) {
 
         if imageCacheManager.isImageCached(withIdentifier: (url as NSURL)) == .available {
             if let cachedImage = imageCacheManager.filterImage(withIdentifier: (url as NSURL)) {
-                
-                print("Cached Image: ", cachedImage)
-                
                 completion(cachedImage, nil)
             }
             return
@@ -195,12 +117,13 @@ public extension MVDownloader {
     
         let request = URLRequest(url: url)
         
-        downloadTask(request: request) { [weak self] (data, response, error) in
+        downloadTask(request: request) { [weak self] (data, error) in
 
-            guard let `self` = self else { return }
+            guard let `self` = self else {
+                return
+            }
 
             guard error == nil else {
-                print("Error: ", error as Any)
                 completion(nil, .responseFailed)
                 return
             }
@@ -209,7 +132,7 @@ public extension MVDownloader {
                 completion(nil, .imageConversionFailed)
                 return
             }
-
+            
             self.imageCacheManager.add(image, withIdentifier: (url as NSURL))
             
             completion(image, nil)
