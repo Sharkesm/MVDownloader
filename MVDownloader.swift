@@ -8,6 +8,84 @@
 
 import Foundation
 
+public class MVDownloaderTaskService {
+    
+    private var activeDownloadTask: [URLRequest: MVDownloaderTask]
+    
+    
+    init() {
+        activeDownloadTask = [:]
+    }
+    
+    
+    func addDownloadTask(_ task: MVDownloaderTask) {
+    
+        task.isDownloading = true
+        activeDownloadTask[task.request] = task
+        
+        print("Added request: ", task.request.url as Any)
+        print("Active Requests: ", activeDownloadTask.count)
+    }
+    
+    
+    func hasDownloadTask(for request: URLRequest) -> Bool {
+        return (activeDownloadTask[request] != nil) ? true : false
+    }
+    
+
+    func getDownloadTask(withRequest request: URLRequest) -> MVDownloaderTask? {
+        
+        let requests = activeDownloadTask.keys
+        
+        if requests.contains(request) {
+            return activeDownloadTask[request]
+        }
+        
+        return nil
+    }
+    
+    
+    func cancelDownloadTask(withRequest request: URLRequest) {
+        
+        guard let downloadTask = activeDownloadTask[request] else { return }
+        
+        downloadTask.task?.cancel()
+        activeDownloadTask[request] = nil
+    }
+    
+    
+    @discardableResult
+    func removeDownloadTask(_ task: MVDownloaderTask) -> MVDownloaderTask? {
+        
+        guard let downloadTask = activeDownloadTask[task.request] else { return nil }
+        
+        if let sessionTask = downloadTask.task {
+            print("Cancelling session: ", downloadTask.request.url as Any)
+           sessionTask.cancel()
+           activeDownloadTask[task.request]?.isDownloading = false
+        }
+        
+        if let removedTask = activeDownloadTask.removeValue(forKey: task.request) {
+            print("Remove completed task: ", removedTask.request.url as Any)
+            return removedTask
+        }
+        
+        return nil
+    }
+    
+    
+    @discardableResult
+    func removeAll() -> Bool {
+        for downloadTask in activeDownloadTask {
+            if let sessionTask = downloadTask.value.task {
+                sessionTask.cancel()
+                _ = activeDownloadTask.removeValue(forKey: downloadTask.key)
+            }
+        }
+        
+        return true
+    }
+}
 
 public class MVDownloader {
     
@@ -15,8 +93,11 @@ public class MVDownloader {
     private let urlCache: URLCache
     
     private let imageCacheManager = MVImageCache()
+    private let downloadTaskService: MVDownloaderTaskService = MVDownloaderTaskService()
+    
     
     public static var shared: MVDownloader = MVDownloader(urlCache: MVDownloader.defaultURLCache())
+    
     
     init(urlCache: URLCache = MVDownloader.defaultURLCache()) {
         
@@ -31,6 +112,7 @@ public class MVDownloader {
     
     deinit {
         session.invalidateAndCancel()
+        downloadTaskService.removeAll()
     }
 
 }
@@ -65,34 +147,73 @@ public extension MVDownloader {
     }
     
     
-    func downloadImage(from url: URL, completion: @escaping (_ image: MVImage?, _ error: MVDownloaderError?) -> Void) -> Void {
+    func downloadTask(request: URLRequest, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         
+        if downloadTaskService.hasDownloadTask(for: request) {
+            completion(nil, nil, MVDownloaderError.unknown)
+            return
+        }
+
+        let downloaderTask = MVDownloaderTask(request)
+        
+        downloaderTask.task = session.dataTask(with: request) { [weak self] (data, response, error) in
+
+            guard let `self` = self else { return }
+            
+            guard error == nil else {
+                completion(nil, nil, MVDownloaderError.unknown)
+                return
+            }
+
+            guard let data = data, let response = response else {
+                completion(nil, nil, MVDownloaderError.unknown)
+                return
+            }
+            
+            self.downloadTaskService.removeDownloadTask(downloaderTask)
+            
+            completion(data, response, nil)
+        }
+
+        downloadTaskService.addDownloadTask(downloaderTask)
+
+        downloaderTask.task?.resume()
+    }
+    
+    
+    func downloadImage(from url: URL, completion: @escaping (_ image: MVImage?, _ error: MVDownloaderError?) -> Void) {
+
         if imageCacheManager.isImageCached(withIdentifier: (url as NSURL)) == .available {
             if let cachedImage = imageCacheManager.filterImage(withIdentifier: (url as NSURL)) {
+                
+                print("Cached Image: ", cachedImage)
+                
                 completion(cachedImage, nil)
             }
             return
         }
+    
+        let request = URLRequest(url: url)
         
-        let request = session.dataTask(with: url) { [unowned self] (data, urlResponse, error) in
-            
+        downloadTask(request: request) { [weak self] (data, response, error) in
+
+            guard let `self` = self else { return }
+
             guard error == nil else {
+                print("Error: ", error as Any)
                 completion(nil, .responseFailed)
                 return
             }
-            
+
             guard let data = data, let image = MVImage(data: data) else {
                 completion(nil, .imageConversionFailed)
                 return
             }
-            
-            self.imageCacheManager.add(image, withIdentifier: (url as NSURL))
 
+            self.imageCacheManager.add(image, withIdentifier: (url as NSURL))
+            
             completion(image, nil)
-            
         }
-            
-        request.resume()
     }
     
 }
