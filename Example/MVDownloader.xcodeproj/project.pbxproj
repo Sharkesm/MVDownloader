@@ -15,6 +15,8 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* MVDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* MVDownloaderTests.swift */; };
 		63DAAF9622C911B3009A3157 /* MVDownloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DAAF9522C911B3009A3157 /* MVDownloader.framework */; };
+		63DAAF9A22C9427A009A3157 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DAAF9922C9427A009A3157 /* PhotoModel.swift */; };
+		63DAAF9C22C94336009A3157 /* PhotoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DAAF9B22C94336009A3157 /* PhotoCollectionCell.swift */; };
 		9D7A378981E9D954489AAB6E /* Pods_MVDownloader_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68054713A05BCEF92534BFC /* Pods_MVDownloader_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,8 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* MVDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVDownloaderTests.swift; sourceTree = "<group>"; };
 		63DAAF9522C911B3009A3157 /* MVDownloader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MVDownloader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63DAAF9922C9427A009A3157 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		63DAAF9B22C94336009A3157 /* PhotoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionCell.swift; sourceTree = "<group>"; };
 		9CEFF4DE493D10C7EDC1EF08 /* Pods-MVDownloader_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVDownloader_Tests.debug.xcconfig"; path = "Target Support Files/Pods-MVDownloader_Tests/Pods-MVDownloader_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A68054713A05BCEF92534BFC /* Pods_MVDownloader_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVDownloader_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3ABC3CA0EF879A92ADD9DE8 /* Pods_MVDownloader_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVDownloader_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +102,8 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				63DAAF9922C9427A009A3157 /* PhotoModel.swift */,
+				63DAAF9B22C94336009A3157 /* PhotoCollectionCell.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -339,7 +345,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63DAAF9A22C9427A009A3157 /* PhotoModel.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				63DAAF9C22C94336009A3157 /* PhotoCollectionCell.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

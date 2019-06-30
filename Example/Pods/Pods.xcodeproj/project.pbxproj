@@ -20,9 +20,9 @@
 		48B8FF32AEDF6791D2BBF9E129EB4646 /* MVImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE642308C54F23F8000D4C7C5E6E6367 /* MVImageCache.swift */; };
 		4E29B697FD33A8A38421CA9648428EAA /* MVDownloaderTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A67428A6BB89C2C29ECD18B192689A /* MVDownloaderTask.swift */; };
 		5851F8ED7F26C74D48D21C381C3A40D3 /* MVDownloaderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4812B6AE940C6E21634F2663B8ADD64D /* MVDownloaderError.swift */; };
+		63DAAF9E22C9448F009A3157 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DAAF9D22C9448F009A3157 /* PhotoModel.swift */; };
 		6820EB775983BED4E6315DEEFC118334 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		69E4AB08CFA95C8843A967458756CB4B /* Pods-MVDownloader_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 798268F495ADE67FAA10A2DF09C5B84E /* Pods-MVDownloader_Tests-dummy.m */; };
-		8DD7C1F3D4C6ED47AF116805F8949DE4 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F786929095BAAA888D5F7A284ECDC4FB /* PhotoModel.swift */; };
 		9CCF18497F300D0108C3AD4F4D0E69ED /* MVDownloader-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14F6F05CB61D8EF88ED39AB5490D77 /* MVDownloader-dummy.m */; };
 		C48F9524892BD5C088959439D84D472D /* MVImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4DE7DD6A7F5363938840D1A026E271 /* MVImage.swift */; };
 		C5372BDB70B1D6E962BFA43414800F65 /* Pods-MVDownloader_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 020867A8D7B1368AFE099695F3CA3E45 /* Pods-MVDownloader_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -63,6 +63,7 @@
 		4A8244B4DEF68F1E18E1F76F597A797A /* MVDownloader.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MVDownloader.xcconfig; sourceTree = "<group>"; };
 		4B480B22E31534F780D1B1991D0A6466 /* Pods-MVDownloader_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MVDownloader_Example.release.xcconfig"; sourceTree = "<group>"; };
 		5A12D492C40D39B5004F631864A08956 /* Pods-MVDownloader_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MVDownloader_Tests.modulemap"; sourceTree = "<group>"; };
+		63DAAF9D22C9448F009A3157 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		6B39AF7FE947C67ABE2640DC591E9EBB /* Pods-MVDownloader_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MVDownloader_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6E4DE7DD6A7F5363938840D1A026E271 /* MVImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MVImage.swift; sourceTree = "<group>"; };
 		6EFCDA097757D5C330CD4D54C67BB399 /* MVImageCacheProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MVImageCacheProtocol.swift; sourceTree = "<group>"; };
@@ -87,7 +88,6 @@
 		E1BF12ABF6C84AD1EAEE0129A84A701F /* Pods-MVDownloader_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MVDownloader_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F237E4BAB44F6E0638FDE6487B24ECC2 /* Pods-MVDownloader_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MVDownloader_Example-dummy.m"; sourceTree = "<group>"; };
 		F73D0103BA25DD5BA5953B8644BAE674 /* Pods_MVDownloader_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVDownloader_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F786929095BAAA888D5F7A284ECDC4FB /* PhotoModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		F9A775F11E84ECCE9F9A3E50B68AC026 /* Pods_MVDownloader_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVDownloader_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -141,8 +141,8 @@
 			children = (
 				4812B6AE940C6E21634F2663B8ADD64D /* MVDownloaderError.swift */,
 				01A67428A6BB89C2C29ECD18B192689A /* MVDownloaderTask.swift */,
-				F786929095BAAA888D5F7A284ECDC4FB /* PhotoModel.swift */,
 				B773916769885739E46FA389F27A1DF2 /* ResponseHandler.swift */,
+				63DAAF9D22C9448F009A3157 /* PhotoModel.swift */,
 			);
 			name = Models;
 			path = MVDownloader/Classes/Models;
@@ -430,7 +430,7 @@
 				C48F9524892BD5C088959439D84D472D /* MVImage.swift in Sources */,
 				48B8FF32AEDF6791D2BBF9E129EB4646 /* MVImageCache.swift in Sources */,
 				E842CD48DE2250DFEA057C1860735EB3 /* MVImageCacheProtocol.swift in Sources */,
-				8DD7C1F3D4C6ED47AF116805F8949DE4 /* PhotoModel.swift in Sources */,
+				63DAAF9E22C9448F009A3157 /* PhotoModel.swift in Sources */,
 				226CE955BD81EA74C9659911259F4F85 /* ResponseHandler.swift in Sources */,
 				3085F09C471CD602B288A151B9FE310E /* UIImageView+MVDownloader.swift in Sources */,
 			);
