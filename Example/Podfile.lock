@@ -1,0 +1,16 @@
+PODS:
+  - MVDownloader (0.1.0)
+
+DEPENDENCIES:
+  - MVDownloader (from `../`)
+
+EXTERNAL SOURCES:
+  MVDownloader:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MVDownloader: 2415b3585aef123137bb1b8805cbb1f76ea635ba
+
+PODFILE CHECKSUM: f28ed21bd2da7ca4f5f64046376be89cf77e000d
+
+COCOAPODS: 1.6.1
