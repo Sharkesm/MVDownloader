@@ -42,6 +42,8 @@ imageView.mv_setImage(from: url) // Sets downloaded image under the hood
 ```swift 
 import MVDownloader
 
+/// A type that can convert itself into and out of an external representation.
+
 struct PhotoUrls: Codable {
     var raw: String
     var full: String
@@ -49,6 +51,9 @@ struct PhotoUrls: Codable {
     var small: String
     var thumb: String
 }
+
+
+/// By default, below function utilises `JSONDecoder` object to decode instances of a data type from JSON objects.  
 
 MVDownloader.shared.requestDecodable(type: PhotoUrls.self, from: pasteBinUrl) { (data, error) in
 
@@ -58,7 +63,7 @@ MVDownloader.shared.requestDecodable(type: PhotoUrls.self, from: pasteBinUrl) { 
 
 ## Author
 
-Sharkes Monken, sharkesm@gmail.com
+Manase Michael, sharkesm@gmail.com
 
 ## License
 
