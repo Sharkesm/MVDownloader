@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MVDownloader_Example' do
+  pod 'MVDownloader', :path => '../'
+
+  target 'MVDownloader_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
