@@ -35,11 +35,13 @@ import MVDownloader
 
 let imageView = UIImageView()
 
-imageView.mv_setImage(from: url) // Sets downloaded image by default 
+imageView.mv_setImage(from: url) // Sets downloaded image under the hood 
 ```
 
 ### Download JSON 
-```
+```swift 
+import MVDownloader
+
 struct PhotoUrls: Codable {
     var raw: String
     var full: String
