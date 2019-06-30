@@ -24,14 +24,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl.addTarget(self, action: #selector(refresh(_:)), for: UIControl.Event.valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: UIControl.Event.valueChanged)
         
         collectionView.addSubview(self.refreshControl)
+        collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         
-        requestForPhotoUlrs()
-        
+        requestDownloadablePhotoUrls()
     }
     
     
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         collectionView.reloadData()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            self.requestForPhotoUlrs()
+            self.requestDownloadablePhotoUrls()
         }
     }
     
@@ -50,7 +50,9 @@ class ViewController: UIViewController {
 
 private extension ViewController {
     
-    func requestForPhotoUlrs() {
+    func requestDownloadablePhotoUrls() {
+        
+        refreshControl.beginRefreshing()
         
         MVDownloader.shared.requestDecodable(type: [PhotoModel].self, from: pasteBinUrl) { (photoModels, error) in
             
@@ -63,6 +65,7 @@ private extension ViewController {
             }
             
             DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
                 self.collectionView.reloadData()
             }
         }
