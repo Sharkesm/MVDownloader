@@ -9,4 +9,6 @@
 import Foundation
 import UIKit
 
+
+/// Internal alias kind for UIImage
 public typealias MVImage = UIImage

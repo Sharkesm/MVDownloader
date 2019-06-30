@@ -18,19 +18,7 @@ class PhotoCollectionCell: UICollectionViewCell {
     }
     
     func configureImage(withURL url: URL) {
-        
-        MVDownloader.shared.downloadImage(from: url) { [weak self] (image, error) in
-
-            guard let `self` = self else { return }
-
-            guard let image = image, error == nil else {
-                return
-            }
-
-            DispatchQueue.main.async {
-                self.imageView.image = image
-            }
-        }
+        imageView.mv_setImage(from: url)
     }
     
 }
