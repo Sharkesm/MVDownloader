@@ -10,11 +10,11 @@ import Foundation
 
 public class MVDownloader {
     
-    private let session: URLSession
-    private let urlCache: URLCache
+    let session: URLSession
+    let urlCache: URLCache
     
-    private let imageCacheManager = MVImageCache()
-    private let downloadTaskService: MVDownloaderTaskService = MVDownloaderTaskService()
+    let imageCacheManager = MVImageCache()
+    let downloadTaskService: MVDownloaderTaskService = MVDownloaderTaskService()
     
     public static var shared: MVDownloader = MVDownloader(urlCache: MVDownloader.defaultURLCache())
     

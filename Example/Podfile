@@ -4,7 +4,7 @@ platform :ios, '10.0'
 
 target 'MVDownloader_Example' do
 
- pod 'MVDownloader', :path => '~/Desktop/MVDownloader/MVDownloader/MVDownloader'
+ pod 'MVDownloader', :path => '~/Desktop/MVDownloader'
  
   target 'MVDownloader_Tests' do
     inherit! :search_paths

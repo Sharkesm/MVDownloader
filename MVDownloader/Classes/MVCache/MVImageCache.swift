@@ -39,7 +39,7 @@ extension MVImageCache: MVImageCacheProtocol {
     
     
     public func filterImage(withIdentifier identifier: NSURL) -> MVImage? {
-        return cache.object(forKey: identifier)!
+        return cache.object(forKey: identifier)
     }
     
     

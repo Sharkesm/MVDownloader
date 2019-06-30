@@ -2,6 +2,7 @@
   "name": "MVDownloader",
   "version": "0.1.0",
   "summary": "A library to make remote requests for images and JSON files",
+  "swift_version": "5.0",
   "description": "A pure swift library used for downloading images or JSON format files and with caching configuration support.",
   "homepage": "https://github.com/Sharkesm/MVDownloader",
   "license": {

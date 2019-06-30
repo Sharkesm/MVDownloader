@@ -13,9 +13,9 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		631AECF022C8F04F002FA9A8 /* MVDownloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631AECEF22C8F04F002FA9A8 /* MVDownloader.framework */; };
-		CDD2BF32B0C3345CA9675779 /* Pods_MVDownloader_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68054713A05BCEF92534BFC /* Pods_MVDownloader_Example.framework */; };
+		607FACEC1AFB9204008FA782 /* MVDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* MVDownloaderTests.swift */; };
+		63DAAF9622C911B3009A3157 /* MVDownloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DAAF9522C911B3009A3157 /* MVDownloader.framework */; };
+		9D7A378981E9D954489AAB6E /* Pods_MVDownloader_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68054713A05BCEF92534BFC /* Pods_MVDownloader_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +40,8 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* MVDownloader_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVDownloader_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		631AECEF22C8F04F002FA9A8 /* MVDownloader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MVDownloader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACEB1AFB9204008FA782 /* MVDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVDownloaderTests.swift; sourceTree = "<group>"; };
+		63DAAF9522C911B3009A3157 /* MVDownloader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MVDownloader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CEFF4DE493D10C7EDC1EF08 /* Pods-MVDownloader_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVDownloader_Tests.debug.xcconfig"; path = "Target Support Files/Pods-MVDownloader_Tests/Pods-MVDownloader_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A68054713A05BCEF92534BFC /* Pods_MVDownloader_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVDownloader_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3ABC3CA0EF879A92ADD9DE8 /* Pods_MVDownloader_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVDownloader_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,8 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				631AECF022C8F04F002FA9A8 /* MVDownloader.framework in Frameworks */,
-				CDD2BF32B0C3345CA9675779 /* Pods_MVDownloader_Example.framework in Frameworks */,
+				63DAAF9622C911B3009A3157 /* MVDownloader.framework in Frameworks */,
+				9D7A378981E9D954489AAB6E /* Pods_MVDownloader_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +118,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				607FACEB1AFB9204008FA782 /* MVDownloaderTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -156,7 +156,7 @@
 		F52DB13D41C4E6656BBE82AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				631AECEF22C8F04F002FA9A8 /* MVDownloader.framework */,
+				63DAAF9522C911B3009A3157 /* MVDownloader.framework */,
 				A68054713A05BCEF92534BFC /* Pods_MVDownloader_Example.framework */,
 				B3ABC3CA0EF879A92ADD9DE8 /* Pods_MVDownloader_Tests.framework */,
 			);
@@ -174,7 +174,7 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				2CA7437E014ABFDCCCCDFD22 /* [CP] Embed Pods Frameworks */,
+				8F5820FF64331AD55993917C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -288,7 +288,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2CA7437E014ABFDCCCCDFD22 /* [CP] Embed Pods Frameworks */ = {
+		8F5820FF64331AD55993917C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -348,7 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				607FACEC1AFB9204008FA782 /* MVDownloaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
