@@ -10,6 +10,12 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+- iOS 10.0+ 
+- Xcode 10.0+
+- Swift 5.0+
+
+## Dependencies
+- [UIKit](https://developer.apple.com/documentation/uikit)
 
 ## Installation
 
@@ -18,6 +24,34 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'MVDownloader'
+```
+
+## Usage
+
+### Download image 
+
+```swift
+import MVDownloader
+
+let imageView = UIImageView()
+
+imageView.mv_setImage(from: url) // Sets downloaded image by default 
+```
+
+### Download JSON 
+```
+struct PhotoUrls: Codable {
+    var raw: String
+    var full: String
+    var regular: String
+    var small: String
+    var thumb: String
+}
+
+MVDownloader.shared.requestDecodable(type: PhotoUrls.self, from: pasteBinUrl) { (data, error) in
+
+    // Proceed with data extraction 
+}
 ```
 
 ## Author
