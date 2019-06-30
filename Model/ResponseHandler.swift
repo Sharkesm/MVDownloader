@@ -9,6 +9,7 @@
 import Foundation
 
 
+/// Custom network response
 public struct ResponseData {
     var data: Data?
     var error: Error?
@@ -18,6 +19,7 @@ public struct ResponseData {
 public typealias CompletionHandler = (Data?, Error?) -> Void
 
 
+/// Holds reference for unique response handlers
 class ResponseHandler {
     
     let handlerID: String
@@ -29,8 +31,12 @@ class ResponseHandler {
     }
 }
 
+
 extension ResponseHandler {
     
+    /// Generates a unique string to be used as handler identifirer
+    ///
+    /// - Returns: Unique string
     static func getUniqueHandlerID() -> String {
         return UUID().uuidString
     }

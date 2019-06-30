@@ -9,6 +9,7 @@
 import UIKit
 
 
+/// Caches `MVImage` temporarily
 public class MVImageCache {
     
     private var cache: NSCache<NSURL, MVImage>
@@ -28,6 +29,24 @@ public class MVImageCache {
 // MARK: - MVImageCacheProtocol Methods
 
 extension MVImageCache: MVImageCacheProtocol {
+    
+    
+    @discardableResult
+    public func clearCache() -> Bool {
+        cache.removeAllObjects()
+        return true
+    }
+    
+    
+    public func filterImage(withIdentifier identifier: NSURL) -> MVImage? {
+        return cache.object(forKey: identifier)!
+    }
+    
+    
+    public func isImageCached(withIdentifier identifier: NSURL) -> MVImageCacheStatus {
+        return (cache.object(forKey: identifier) != nil) ? .available : .notAvailable
+    }
+    
     
     public func add(_ image: MVImage, withIdentifier identifier: NSURL) {
         
@@ -51,31 +70,5 @@ extension MVImageCache: MVImageCacheProtocol {
         cache.removeObject(forKey: identifier)
         
         return true
-    }
-    
-    
-    @discardableResult
-    public func clearCache() -> Bool {
-        cache.removeAllObjects()
-        return true
-    }
-    
-    
-    public func filterImage(withIdentifier identifier: NSURL) -> MVImage? {
-        
-        if isImageCached(withIdentifier: identifier) == .notAvailable {
-            return nil
-        }
-        
-        guard let cachedImage = cache.object(forKey: identifier) else {
-            return nil
-        }
-        
-        return cachedImage
-    }
-    
-    
-    public func isImageCached(withIdentifier identifier: NSURL) -> MVImageCacheStatus {
-        return (cache.object(forKey: identifier) != nil) ? .available : .notAvailable
     }
 }

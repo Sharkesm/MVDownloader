@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+/// A download task that manages it's response handlers 
 class MVDownloaderTask {
     
     var request: URLRequest
