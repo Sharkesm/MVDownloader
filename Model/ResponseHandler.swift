@@ -28,3 +28,11 @@ class ResponseHandler {
         self.completion = completion
     }
 }
+
+extension ResponseHandler {
+    
+    static func getUniqueHandlerID() -> String {
+        return UUID().uuidString
+    }
+    
+}

@@ -70,7 +70,7 @@ public extension MVDownloader {
     
     func downloadTask(request: URLRequest, completion: @escaping CompletionHandler) {
         
-        let handlerID = UUID().uuidString
+        let handlerID = ResponseHandler.getUniqueHandlerID()
         
         let responseHanlder = ResponseHandler(handlerID: handlerID, completion: completion)
         
