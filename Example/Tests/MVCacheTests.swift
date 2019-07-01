@@ -15,9 +15,13 @@ class MVCacheTests: XCTestCase {
     let imageCache = MVImageCache()
     
     override func setUp() {
+        super.setUp()
+        imageCache.clearCache()
     }
 
     override func tearDown() {
+        super.tearDown()
+        imageCache.clearCache()
     }
 
     func testDefaultIntialization() {
@@ -34,9 +38,8 @@ class MVCacheTests: XCTestCase {
     func testAvailableImageOnCache() {
         
         let mvimage = MVImage(named: "placeholder")!
-        let testURL = NSURL(string: "www.google.com")!
+        let testURL = NSURL(string: "www.reddit.com")!
         
-        imageCache.clearCache()
         imageCache.add(mvimage, withIdentifier: testURL)
         
         XCTAssertTrue(imageCache.isImageCached(withIdentifier: testURL) == .available, "Should not fail since image was cached")
@@ -45,9 +48,7 @@ class MVCacheTests: XCTestCase {
     
     func testUnavailableImageOnCache() {
         
-        let testURL = NSURL(string: "www.google.com")!
-        
-        imageCache.clearCache()
+        let testURL = NSURL(string: "www.youtube.com")!
         
         XCTAssertFalse(imageCache.isImageCached(withIdentifier: testURL) == .available, "Should not fail since image was never cached")
     }
@@ -56,9 +57,7 @@ class MVCacheTests: XCTestCase {
     func testFilterCachedImageWithSuccess() {
         
         let mvimage = MVImage(named: "placeholder")!
-        let testURL = NSURL(string: "www.google.com")!
-        
-        imageCache.clearCache()
+        let testURL = NSURL(string: "www.github.com")!
         
         imageCache.add(mvimage, withIdentifier: testURL)
         
@@ -73,8 +72,6 @@ class MVCacheTests: XCTestCase {
         let testURL2 = NSURL(string: "www.facebook.com")!
         let testURL1 = NSURL(string: "www.google.com")!
         
-        imageCache.clearCache()
-        
         imageCache.add(mvimage2, withIdentifier: testURL2)
         
         XCTAssertNil(imageCache.filterImage(withIdentifier: testURL1), "Should be nil since no match was found")
@@ -84,9 +81,7 @@ class MVCacheTests: XCTestCase {
     func testRemoveCachedImageWithSuccess() {
         
         let mvimage = MVImage(named: "placeholder")!
-        let testURL = NSURL(string: "www.google.com")!
-        
-        imageCache.clearCache()
+        let testURL = NSURL(string: "www.malcomx.com")!
         
         imageCache.add(mvimage, withIdentifier: testURL)
         
@@ -101,8 +96,8 @@ class MVCacheTests: XCTestCase {
     func testRemoveCachedImageWithFailure() {
     
         let mvimage = MVImage(named: "placeholder")!
-        let testURL1 = NSURL(string: "www.google.com")!
-        let testURL2 = NSURL(string: "www.facebook.com")!
+        let testURL1 = NSURL(string: "www.spiderman.com")!
+        let testURL2 = NSURL(string: "www.wechat.com")!
         
         imageCache.clearCache()
         
@@ -122,9 +117,9 @@ class MVCacheTests: XCTestCase {
         let mvimage2 = MVImage(named: "placeholder")!
         let mvimage3 = MVImage(named: "placeholder")!
         
-        let testURL1 = NSURL(string: "www.google.com")!
-        let testURL2 = NSURL(string: "www.facebook.com")!
-        let testURL3 = NSURL(string: "www.twitter.com")!
+        let testURL1 = NSURL(string: "www.ibm.com")!
+        let testURL2 = NSURL(string: "www.samsung.com")!
+        let testURL3 = NSURL(string: "www.accer.com")!
         
         imageCache.add(mvimage1, withIdentifier: testURL1)
         imageCache.add(mvimage2, withIdentifier: testURL2)
