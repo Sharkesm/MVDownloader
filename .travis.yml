@@ -30,7 +30,7 @@ env:
 script:
   - set -o pipefail && xcodebuild -version
   - set -o pipefail && xcodebuild -showsdks 
-  - set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/MVDownloader.xcworkspace -scheme MVDownloader_Example -sdk $TEST_SDK -destination "platform=iOS Simulator,OS=$OS,name=$NAME" ONLY_ACTIVE_ARCH=YES
+  - set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/MVDownloader.xcworkspace -scheme MVDownloader-Example -sdk $TEST_SDK -destination "platform=iOS Simulator,OS=$OS,name=$NAME" ONLY_ACTIVE_ARCH=YES
   - pod lib lint MVDownloader.podspec 
  
 notifications:
