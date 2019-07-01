@@ -14,8 +14,8 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* MVDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* MVDownloaderTests.swift */; };
+		6323870F22CA0CAB009D9590 /* MVDownloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6323870E22CA0CAB009D9590 /* MVDownloader.framework */; };
 		63527D1422C9AE7200EE9093 /* MVCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63527D1322C9AE7200EE9093 /* MVCacheTests.swift */; };
-		63DAAF9622C911B3009A3157 /* MVDownloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DAAF9522C911B3009A3157 /* MVDownloader.framework */; };
 		63DAAF9A22C9427A009A3157 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DAAF9922C9427A009A3157 /* PhotoModel.swift */; };
 		63DAAF9C22C94336009A3157 /* PhotoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DAAF9B22C94336009A3157 /* PhotoCollectionCell.swift */; };
 		63E031A722C9C4D800577D7F /* UIImageViewAnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E031A622C9C4D800577D7F /* UIImageViewAnimationTests.swift */; };
@@ -47,8 +47,8 @@
 		607FACE51AFB9204008FA782 /* MVDownloader_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVDownloader_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* MVDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVDownloaderTests.swift; sourceTree = "<group>"; };
+		6323870E22CA0CAB009D9590 /* MVDownloader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MVDownloader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63527D1322C9AE7200EE9093 /* MVCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVCacheTests.swift; sourceTree = "<group>"; };
-		63DAAF9522C911B3009A3157 /* MVDownloader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MVDownloader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63DAAF9922C9427A009A3157 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		63DAAF9B22C94336009A3157 /* PhotoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionCell.swift; sourceTree = "<group>"; };
 		63E031A622C9C4D800577D7F /* UIImageViewAnimationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewAnimationTests.swift; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63DAAF9622C911B3009A3157 /* MVDownloader.framework in Frameworks */,
+				6323870F22CA0CAB009D9590 /* MVDownloader.framework in Frameworks */,
 				9D7A378981E9D954489AAB6E /* Pods_MVDownloader_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,7 +214,7 @@
 		F52DB13D41C4E6656BBE82AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				63DAAF9522C911B3009A3157 /* MVDownloader.framework */,
+				6323870E22CA0CAB009D9590 /* MVDownloader.framework */,
 				A68054713A05BCEF92534BFC /* Pods_MVDownloader_Example.framework */,
 				B3ABC3CA0EF879A92ADD9DE8 /* Pods_MVDownloader_Tests.framework */,
 			);

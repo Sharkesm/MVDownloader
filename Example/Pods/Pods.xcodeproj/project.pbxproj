@@ -7,26 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00C8ADF960C6606353C3A33D0B2CBB6D /* MVDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C54C8356CA8B92F0B30A002E8A4D4 /* MVDownloader.swift */; };
 		1E8F8F30E76ED9C3B3368F34F2583495 /* Pods-MVDownloader_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E2F6D46E44C7BCADE997EDDEC1914A /* Pods-MVDownloader_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		226CE955BD81EA74C9659911259F4F85 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B773916769885739E46FA389F27A1DF2 /* ResponseHandler.swift */; };
 		290A4B608F6D27CD6904B0DD6ACD173C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
 		293D9B037606EB2D04430FD2E9932700 /* Pods-MVDownloader_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F237E4BAB44F6E0638FDE6487B24ECC2 /* Pods-MVDownloader_Example-dummy.m */; };
-		2CC6BAAD39368C5A80A5A9657376C135 /* MVDownloader-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3068C04D7F6C77732D2F01DA32AAC105 /* MVDownloader-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2E3394171C15CE8DC59103A51F8F3BE6 /* MVDownloaderTaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B2A030D72C81598C4B5FC3371ACE3 /* MVDownloaderTaskService.swift */; };
-		3085F09C471CD602B288A151B9FE310E /* UIImageView+MVDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA32E112B4327A6907CEFA3DFC9534CD /* UIImageView+MVDownloader.swift */; };
+		2CC6BAAD39368C5A80A5A9657376C135 /* MVDownloader-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B7148BCC6B67BBB301CF9B18E8A37E6 /* MVDownloader-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DB8D6A069BBEE1F5B06F0E439F10E69 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341887899B5A1AC16C8D7068640E1A23 /* ResponseHandler.swift */; };
 		38DE64BA5FB58295BF9E0687A5688A0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		393ACD15C82960F120E5C9EF1AB03A3B /* MVImageCacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F2A57BC04823BC7E2D9E5D64BA18AB /* MVImageCacheProtocol.swift */; };
+		3BE69AFE695B97A4E50AEBECCE34EDEA /* MVDownloaderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F9B601C6798CAED49CAC5B338B34EF /* MVDownloaderError.swift */; };
 		3D0CE27461125319845FB7A7FC14FEFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		48B8FF32AEDF6791D2BBF9E129EB4646 /* MVImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE642308C54F23F8000D4C7C5E6E6367 /* MVImageCache.swift */; };
-		4E29B697FD33A8A38421CA9648428EAA /* MVDownloaderTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A67428A6BB89C2C29ECD18B192689A /* MVDownloaderTask.swift */; };
-		5851F8ED7F26C74D48D21C381C3A40D3 /* MVDownloaderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4812B6AE940C6E21634F2663B8ADD64D /* MVDownloaderError.swift */; };
-		63DAAF9E22C9448F009A3157 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DAAF9D22C9448F009A3157 /* PhotoModel.swift */; };
+		65CF7598852BC53400B0D8060832B21A /* MVDownloader-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A2455518288E3FCF65E8C3B043AE88 /* MVDownloader-dummy.m */; };
 		6820EB775983BED4E6315DEEFC118334 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		69E4AB08CFA95C8843A967458756CB4B /* Pods-MVDownloader_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 798268F495ADE67FAA10A2DF09C5B84E /* Pods-MVDownloader_Tests-dummy.m */; };
-		9CCF18497F300D0108C3AD4F4D0E69ED /* MVDownloader-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14F6F05CB61D8EF88ED39AB5490D77 /* MVDownloader-dummy.m */; };
-		C48F9524892BD5C088959439D84D472D /* MVImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4DE7DD6A7F5363938840D1A026E271 /* MVImage.swift */; };
+		6B32F6D1489F66A46007F848B889E8DC /* MVDownloaderTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A524D82C60D022606B3AB1CFDF4252 /* MVDownloaderTask.swift */; };
+		705CDF0810A4B658FEAAF47D83C7BDBB /* MVImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7913F20681E0498B48148B5BA5922911 /* MVImage.swift */; };
+		7A324E0D9926B4DF841B0836466FF6FF /* MVDownloaderTaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D3E98C4C8ACD4E82836A61DBAB3C8E /* MVDownloaderTaskService.swift */; };
+		7AE5747D13F18414FA6AC39881833CFC /* MVImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447A765F49E35A5A077DF2D31FF994D /* MVImageCache.swift */; };
+		A1FE37DD5F4613DB5144F94FD766137B /* UIImageView+MVDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA643C443913015E54A2CC901C9CD85 /* UIImageView+MVDownloader.swift */; };
+		A806A1292A0E3C8DE75140676388C637 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4BDB15B2780BD7EC900FD1717A423D /* PhotoModel.swift */; };
 		C5372BDB70B1D6E962BFA43414800F65 /* Pods-MVDownloader_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 020867A8D7B1368AFE099695F3CA3E45 /* Pods-MVDownloader_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E842CD48DE2250DFEA057C1860735EB3 /* MVImageCacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFCDA097757D5C330CD4D54C67BB399 /* MVImageCacheProtocol.swift */; };
+		F4F8398E66AB7137332D8A176080D344 /* MVDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3CB69E6D0DAF4CC811998C14FCF903 /* MVDownloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,48 +47,45 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01A67428A6BB89C2C29ECD18B192689A /* MVDownloaderTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MVDownloaderTask.swift; sourceTree = "<group>"; };
 		020867A8D7B1368AFE099695F3CA3E45 /* Pods-MVDownloader_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MVDownloader_Example-umbrella.h"; sourceTree = "<group>"; };
+		059A8FE2D7B0E7D43B973B5D198AB97E /* MVDownloader-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MVDownloader-prefix.pch"; sourceTree = "<group>"; };
+		09F9B601C6798CAED49CAC5B338B34EF /* MVDownloaderError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MVDownloaderError.swift; path = MVDownloader/Classes/Models/MVDownloaderError.swift; sourceTree = "<group>"; };
+		14D3E98C4C8ACD4E82836A61DBAB3C8E /* MVDownloaderTaskService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MVDownloaderTaskService.swift; path = MVDownloader/Classes/Services/MVDownloaderTaskService.swift; sourceTree = "<group>"; };
 		199E5C70D92BC131FF47C777627FEEBC /* Pods-MVDownloader_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MVDownloader_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		1BB5E684589F5B87709B90D5E59E802D /* Pods-MVDownloader_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MVDownloader_Tests-Info.plist"; sourceTree = "<group>"; };
 		225B8182F311AFE61B720853C8B3622C /* Pods-MVDownloader_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MVDownloader_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		299B08C14F917C05ADE9E48BE2821626 /* MVDownloader.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MVDownloader.modulemap; sourceTree = "<group>"; };
-		3068C04D7F6C77732D2F01DA32AAC105 /* MVDownloader-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MVDownloader-umbrella.h"; sourceTree = "<group>"; };
+		296B84D2DF50E05A52A4EBCE407D50A0 /* MVDownloader-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MVDownloader-Info.plist"; sourceTree = "<group>"; };
+		2B7148BCC6B67BBB301CF9B18E8A37E6 /* MVDownloader-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MVDownloader-umbrella.h"; sourceTree = "<group>"; };
 		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		3260DD228485E2020CA49C8CB3D5D10C /* Pods-MVDownloader_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MVDownloader_Example.modulemap"; sourceTree = "<group>"; };
+		341887899B5A1AC16C8D7068640E1A23 /* ResponseHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseHandler.swift; path = MVDownloader/Classes/Models/ResponseHandler.swift; sourceTree = "<group>"; };
+		40E9215B87A96F24104BF516A0ECFA0D /* MVDownloader.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MVDownloader.xcconfig; sourceTree = "<group>"; };
 		42DBF5543201F15413146616BFD6490E /* Pods-MVDownloader_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MVDownloader_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		442CBBE8CBE9846BA1F83560D4EF4DC8 /* MVDownloader.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = MVDownloader.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		4812B6AE940C6E21634F2663B8ADD64D /* MVDownloaderError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MVDownloaderError.swift; sourceTree = "<group>"; };
-		4A8244B4DEF68F1E18E1F76F597A797A /* MVDownloader.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MVDownloader.xcconfig; sourceTree = "<group>"; };
+		4A3CB69E6D0DAF4CC811998C14FCF903 /* MVDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MVDownloader.swift; path = MVDownloader/Classes/MVDownloader.swift; sourceTree = "<group>"; };
+		4AA643C443913015E54A2CC901C9CD85 /* UIImageView+MVDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImageView+MVDownloader.swift"; path = "MVDownloader/Classes/Views/UIImageView+MVDownloader.swift"; sourceTree = "<group>"; };
 		4B480B22E31534F780D1B1991D0A6466 /* Pods-MVDownloader_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MVDownloader_Example.release.xcconfig"; sourceTree = "<group>"; };
+		5447A765F49E35A5A077DF2D31FF994D /* MVImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MVImageCache.swift; path = MVDownloader/Classes/MVCache/MVImageCache.swift; sourceTree = "<group>"; };
 		5A12D492C40D39B5004F631864A08956 /* Pods-MVDownloader_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MVDownloader_Tests.modulemap"; sourceTree = "<group>"; };
-		63DAAF9D22C9448F009A3157 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		6B39AF7FE947C67ABE2640DC591E9EBB /* Pods-MVDownloader_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MVDownloader_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		6E4DE7DD6A7F5363938840D1A026E271 /* MVImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MVImage.swift; sourceTree = "<group>"; };
-		6EFCDA097757D5C330CD4D54C67BB399 /* MVImageCacheProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MVImageCacheProtocol.swift; sourceTree = "<group>"; };
-		6F3B2A030D72C81598C4B5FC3371ACE3 /* MVDownloaderTaskService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MVDownloaderTaskService.swift; sourceTree = "<group>"; };
 		7131700BA1F7664493A4B934A657DB3E /* Pods-MVDownloader_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MVDownloader_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		741C54C8356CA8B92F0B30A002E8A4D4 /* MVDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MVDownloader.swift; path = MVDownloader/Classes/MVDownloader.swift; sourceTree = "<group>"; };
+		7913F20681E0498B48148B5BA5922911 /* MVImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MVImage.swift; path = MVDownloader/Classes/MVCache/MVImage.swift; sourceTree = "<group>"; };
 		798268F495ADE67FAA10A2DF09C5B84E /* Pods-MVDownloader_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MVDownloader_Tests-dummy.m"; sourceTree = "<group>"; };
-		7D33D09257C858C964FCCEEABA4551DD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		7F3ECB092087028694EEFFDD64CFBA6A /* MVDownloader-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MVDownloader-Info.plist"; sourceTree = "<group>"; };
 		82346B6F9CE23DA90CFB493EFCF91B93 /* Pods-MVDownloader_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MVDownloader_Example-frameworks.sh"; sourceTree = "<group>"; };
-		915BD2AB07F0171C2D5299084935CBC8 /* MVDownloader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MVDownloader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		915BD2AB07F0171C2D5299084935CBC8 /* MVDownloader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MVDownloader.framework; path = MVDownloader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91F10443572E52EA5F7231A577430E05 /* Pods-MVDownloader_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MVDownloader_Example-Info.plist"; sourceTree = "<group>"; };
 		93E2F6D46E44C7BCADE997EDDEC1914A /* Pods-MVDownloader_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MVDownloader_Tests-umbrella.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9F42799316E2F4A4856F3EB5C5DEDC83 /* MVDownloader-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MVDownloader-prefix.pch"; sourceTree = "<group>"; };
-		AF7109A81B680EE07DA932479753C5E5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		B773916769885739E46FA389F27A1DF2 /* ResponseHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
-		BA14F6F05CB61D8EF88ED39AB5490D77 /* MVDownloader-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MVDownloader-dummy.m"; sourceTree = "<group>"; };
-		BA32E112B4327A6907CEFA3DFC9534CD /* UIImageView+MVDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImageView+MVDownloader.swift"; sourceTree = "<group>"; };
-		BE642308C54F23F8000D4C7C5E6E6367 /* MVImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MVImageCache.swift; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BB4BDB15B2780BD7EC900FD1717A423D /* PhotoModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhotoModel.swift; path = MVDownloader/Classes/Models/PhotoModel.swift; sourceTree = "<group>"; };
+		C4F2A57BC04823BC7E2D9E5D64BA18AB /* MVImageCacheProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MVImageCacheProtocol.swift; path = MVDownloader/Classes/MVCache/MVImageCacheProtocol.swift; sourceTree = "<group>"; };
+		C7A524D82C60D022606B3AB1CFDF4252 /* MVDownloaderTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MVDownloaderTask.swift; path = MVDownloader/Classes/Models/MVDownloaderTask.swift; sourceTree = "<group>"; };
 		E1244FC43D4946ADDE284C4385C41872 /* Pods-MVDownloader_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MVDownloader_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E1BF12ABF6C84AD1EAEE0129A84A701F /* Pods-MVDownloader_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MVDownloader_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E8A2455518288E3FCF65E8C3B043AE88 /* MVDownloader-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MVDownloader-dummy.m"; sourceTree = "<group>"; };
+		EAF61237E6C6A53ADFFD7EB7F2198B33 /* MVDownloader.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MVDownloader.modulemap; sourceTree = "<group>"; };
 		F237E4BAB44F6E0638FDE6487B24ECC2 /* Pods-MVDownloader_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MVDownloader_Example-dummy.m"; sourceTree = "<group>"; };
-		F73D0103BA25DD5BA5953B8644BAE674 /* Pods_MVDownloader_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVDownloader_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9A775F11E84ECCE9F9A3E50B68AC026 /* Pods_MVDownloader_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVDownloader_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F73D0103BA25DD5BA5953B8644BAE674 /* Pods_MVDownloader_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MVDownloader_Example.framework; path = "Pods-MVDownloader_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9A775F11E84ECCE9F9A3E50B68AC026 /* Pods_MVDownloader_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MVDownloader_Tests.framework; path = "Pods-MVDownloader_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,14 +117,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		09381DE15D41706286FC9589CA449C90 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A975B26E035FA7C47A5BFCCAAC6D59FE /* MVDownloader */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,27 +125,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		31D974B8C908E26E53C7D5E4DE922B97 /* Models */ = {
+		4291A551DAD4C69AB9F828640C2987D2 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				4812B6AE940C6E21634F2663B8ADD64D /* MVDownloaderError.swift */,
-				01A67428A6BB89C2C29ECD18B192689A /* MVDownloaderTask.swift */,
-				B773916769885739E46FA389F27A1DF2 /* ResponseHandler.swift */,
-				63DAAF9D22C9448F009A3157 /* PhotoModel.swift */,
+				EAF61237E6C6A53ADFFD7EB7F2198B33 /* MVDownloader.modulemap */,
+				40E9215B87A96F24104BF516A0ECFA0D /* MVDownloader.xcconfig */,
+				E8A2455518288E3FCF65E8C3B043AE88 /* MVDownloader-dummy.m */,
+				296B84D2DF50E05A52A4EBCE407D50A0 /* MVDownloader-Info.plist */,
+				059A8FE2D7B0E7D43B973B5D198AB97E /* MVDownloader-prefix.pch */,
+				2B7148BCC6B67BBB301CF9B18E8A37E6 /* MVDownloader-umbrella.h */,
 			);
-			name = Models;
-			path = MVDownloader/Classes/Models;
-			sourceTree = "<group>";
-		};
-		3F33E38E6DD4B65507D8F59BC84600BF /* MVCache */ = {
-			isa = PBXGroup;
-			children = (
-				6E4DE7DD6A7F5363938840D1A026E271 /* MVImage.swift */,
-				BE642308C54F23F8000D4C7C5E6E6367 /* MVImageCache.swift */,
-				6EFCDA097757D5C330CD4D54C67BB399 /* MVImageCacheProtocol.swift */,
-			);
-			name = MVCache;
-			path = MVDownloader/Classes/MVCache;
+			name = "Support Files";
+			path = "../Target Support Files/MVDownloader";
 			sourceTree = "<group>";
 		};
 		4C0BA7DF2FBDAC482E923C2703CAE6AB /* Targets Support Files */ = {
@@ -168,13 +148,23 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		63527D0D22C9AA8000EE9093 /* Views */ = {
+		5B98D4607526835D9811198209447547 /* MVDownloader */ = {
 			isa = PBXGroup;
 			children = (
-				BA32E112B4327A6907CEFA3DFC9534CD /* UIImageView+MVDownloader.swift */,
+				4A3CB69E6D0DAF4CC811998C14FCF903 /* MVDownloader.swift */,
+				09F9B601C6798CAED49CAC5B338B34EF /* MVDownloaderError.swift */,
+				C7A524D82C60D022606B3AB1CFDF4252 /* MVDownloaderTask.swift */,
+				14D3E98C4C8ACD4E82836A61DBAB3C8E /* MVDownloaderTaskService.swift */,
+				7913F20681E0498B48148B5BA5922911 /* MVImage.swift */,
+				5447A765F49E35A5A077DF2D31FF994D /* MVImageCache.swift */,
+				C4F2A57BC04823BC7E2D9E5D64BA18AB /* MVImageCacheProtocol.swift */,
+				BB4BDB15B2780BD7EC900FD1717A423D /* PhotoModel.swift */,
+				341887899B5A1AC16C8D7068640E1A23 /* ResponseHandler.swift */,
+				4AA643C443913015E54A2CC901C9CD85 /* UIImageView+MVDownloader.swift */,
+				4291A551DAD4C69AB9F828640C2987D2 /* Support Files */,
 			);
-			name = Views;
-			path = MVDownloader/Classes/Views;
+			name = MVDownloader;
+			path = MVDownloader;
 			sourceTree = "<group>";
 		};
 		652A4759131DDE339FFC14EAF6CD8B2E /* Pods-MVDownloader_Tests */ = {
@@ -210,20 +200,13 @@
 			path = "Target Support Files/Pods-MVDownloader_Example";
 			sourceTree = "<group>";
 		};
-		A975B26E035FA7C47A5BFCCAAC6D59FE /* MVDownloader */ = {
+		9A8477656917DFB0A0AA6B0C2252A21F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				741C54C8356CA8B92F0B30A002E8A4D4 /* MVDownloader.swift */,
-				63527D0D22C9AA8000EE9093 /* Views */,
-				31D974B8C908E26E53C7D5E4DE922B97 /* Models */,
-				3F33E38E6DD4B65507D8F59BC84600BF /* MVCache */,
-				E6A35E69B58088CF3F1727B0AABD19F6 /* Services */,
-				FA212BB4F727E47A17CBEC864DE103F1 /* Pod */,
-				FB2AF556A6CFCADF8614138400A40552 /* Support Files */,
+				5B98D4607526835D9811198209447547 /* MVDownloader */,
 			);
-			name = MVDownloader;
-			path = /Users/sharkesmonken/Desktop/MVDownloader;
-			sourceTree = "<absolute>";
+			name = Pods;
+			sourceTree = "<group>";
 		};
 		C26694B5883A4FF2943CFD5776563F77 /* Products */ = {
 			isa = PBXGroup;
@@ -239,8 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				09381DE15D41706286FC9589CA449C90 /* Development Pods */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				9A8477656917DFB0A0AA6B0C2252A21F /* Pods */,
 				C26694B5883A4FF2943CFD5776563F77 /* Products */,
 				4C0BA7DF2FBDAC482E923C2703CAE6AB /* Targets Support Files */,
 			);
@@ -253,39 +236,6 @@
 				312B988EF117AE4DE76A268D970131FE /* UIKit.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		E6A35E69B58088CF3F1727B0AABD19F6 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				6F3B2A030D72C81598C4B5FC3371ACE3 /* MVDownloaderTaskService.swift */,
-			);
-			name = Services;
-			path = MVDownloader/Classes/Services;
-			sourceTree = "<group>";
-		};
-		FA212BB4F727E47A17CBEC864DE103F1 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				AF7109A81B680EE07DA932479753C5E5 /* LICENSE */,
-				442CBBE8CBE9846BA1F83560D4EF4DC8 /* MVDownloader.podspec */,
-				7D33D09257C858C964FCCEEABA4551DD /* README.md */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		FB2AF556A6CFCADF8614138400A40552 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				299B08C14F917C05ADE9E48BE2821626 /* MVDownloader.modulemap */,
-				4A8244B4DEF68F1E18E1F76F597A797A /* MVDownloader.xcconfig */,
-				BA14F6F05CB61D8EF88ED39AB5490D77 /* MVDownloader-dummy.m */,
-				7F3ECB092087028694EEFFDD64CFBA6A /* MVDownloader-Info.plist */,
-				9F42799316E2F4A4856F3EB5C5DEDC83 /* MVDownloader-prefix.pch */,
-				3068C04D7F6C77732D2F01DA32AAC105 /* MVDownloader-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/MVDownloader";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,7 +292,7 @@
 			buildConfigurationList = D73CA3B611B8A9E6CE1EA86FA8CE810E /* Build configuration list for PBXNativeTarget "MVDownloader" */;
 			buildPhases = (
 				3FA90419CDA342C4B5630CAAF750E55C /* Headers */,
-				2242F9D9E68D9073201D656149A6263E /* Sources */,
+				AC4D131455D1005AD5FDFACA088326CD /* Sources */,
 				E5E7F19EDE6E1DE38AAAD9A232E9FADD /* Frameworks */,
 				9B2AE3F4AE88EEA01914CFA779709CC1 /* Resources */,
 			);
@@ -427,24 +377,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2242F9D9E68D9073201D656149A6263E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9CCF18497F300D0108C3AD4F4D0E69ED /* MVDownloader-dummy.m in Sources */,
-				00C8ADF960C6606353C3A33D0B2CBB6D /* MVDownloader.swift in Sources */,
-				5851F8ED7F26C74D48D21C381C3A40D3 /* MVDownloaderError.swift in Sources */,
-				4E29B697FD33A8A38421CA9648428EAA /* MVDownloaderTask.swift in Sources */,
-				2E3394171C15CE8DC59103A51F8F3BE6 /* MVDownloaderTaskService.swift in Sources */,
-				C48F9524892BD5C088959439D84D472D /* MVImage.swift in Sources */,
-				48B8FF32AEDF6791D2BBF9E129EB4646 /* MVImageCache.swift in Sources */,
-				E842CD48DE2250DFEA057C1860735EB3 /* MVImageCacheProtocol.swift in Sources */,
-				63DAAF9E22C9448F009A3157 /* PhotoModel.swift in Sources */,
-				226CE955BD81EA74C9659911259F4F85 /* ResponseHandler.swift in Sources */,
-				3085F09C471CD602B288A151B9FE310E /* UIImageView+MVDownloader.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6CDFC8AC5EBA61CA295B93E3FE9123B8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -458,6 +390,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				293D9B037606EB2D04430FD2E9932700 /* Pods-MVDownloader_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC4D131455D1005AD5FDFACA088326CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65CF7598852BC53400B0D8060832B21A /* MVDownloader-dummy.m in Sources */,
+				F4F8398E66AB7137332D8A176080D344 /* MVDownloader.swift in Sources */,
+				3BE69AFE695B97A4E50AEBECCE34EDEA /* MVDownloaderError.swift in Sources */,
+				6B32F6D1489F66A46007F848B889E8DC /* MVDownloaderTask.swift in Sources */,
+				7A324E0D9926B4DF841B0836466FF6FF /* MVDownloaderTaskService.swift in Sources */,
+				705CDF0810A4B658FEAAF47D83C7BDBB /* MVImage.swift in Sources */,
+				7AE5747D13F18414FA6AC39881833CFC /* MVImageCache.swift in Sources */,
+				393ACD15C82960F120E5C9EF1AB03A3B /* MVImageCacheProtocol.swift in Sources */,
+				A806A1292A0E3C8DE75140676388C637 /* PhotoModel.swift in Sources */,
+				2DB8D6A069BBEE1F5B06F0E439F10E69 /* ResponseHandler.swift in Sources */,
+				A1FE37DD5F4613DB5144F94FD766137B /* UIImageView+MVDownloader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,7 +530,7 @@
 		};
 		2F84F6D9260961C416B410E110852EDA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A8244B4DEF68F1E18E1F76F597A797A /* MVDownloader.xcconfig */;
+			baseConfigurationReference = 40E9215B87A96F24104BF516A0ECFA0D /* MVDownloader.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -613,7 +563,7 @@
 		};
 		62F307BD79B5D8595E544271FC061FF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A8244B4DEF68F1E18E1F76F597A797A /* MVDownloader.xcconfig */;
+			baseConfigurationReference = 40E9215B87A96F24104BF516A0ECFA0D /* MVDownloader.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -696,7 +646,8 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

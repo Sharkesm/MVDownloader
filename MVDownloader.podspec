@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-MVDownloader is a native swift library for making asynchrouns remote requests to download images or JSON format files from the web.
+MVDownloader is a native swift library for making asychronous remote requests to download images or JSON format files from the web.
                        DESC
 
   s.homepage         = 'https://github.com/Sharkesm/MVDownloader'

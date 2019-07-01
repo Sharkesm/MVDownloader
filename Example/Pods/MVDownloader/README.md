@@ -52,14 +52,12 @@ pod 'MVDownloader'
 ## Usage
 
 ### Shared Instance  
-MVDownloader has a shared instance that can be utilised to access all of the exposed methods.
+MVDownloader has a shared instance that can be utilised to access all of the exposed methods
 ```swift
 import MVDownloader 
 
 MVDownloader.shared
 ```
-By default the library will cache all responses from all given URL requests and utilises `NSCache` object to provide in-memory spacing of up to `80 mb`.
- You can still configure a custom `NSCache` object with different storage capacity by initiating `MVDownloader.init(urlCache:_)` with defined cache.  
 
 ### Download Image
 Downloading images using the library can be as easy as providing a proper `URL` request to `downloadImage(from:_, comepletion:_)` method 

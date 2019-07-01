@@ -2,15 +2,15 @@ PODS:
   - MVDownloader (0.1.0)
 
 DEPENDENCIES:
-  - MVDownloader (from `~/Desktop/MVDownloader`)
+  - MVDownloader
 
-EXTERNAL SOURCES:
-  MVDownloader:
-    :path: "~/Desktop/MVDownloader"
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - MVDownloader
 
 SPEC CHECKSUMS:
-  MVDownloader: 4feb90300654316354b294298ed234f0fddc6171
+  MVDownloader: 2b538200fce4b173842405d3b54ddc96f0b12686
 
-PODFILE CHECKSUM: ff06e36c8dfc9383b942028195e6a3d63c0c2ac1
+PODFILE CHECKSUM: f86a6a23bbfa39d581f5d3dc07097dccbdccefd8
 
 COCOAPODS: 1.6.1
