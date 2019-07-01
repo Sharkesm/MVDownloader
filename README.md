@@ -120,6 +120,24 @@ MVDownloader.shared.requestDecodable(type: PhotoUrls.self, from: pasteBinUrl) { 
 }
 ```
 
+### Normal Remote Request 
+Another benefit for this library is that it's not limited to download JSON and Image only. But you can also still make normal requests to the network. 
+```swift 
+import MVDownloader 
+
+let url = URL(string: "www.google.com")!
+let urlRequest = URLRequest(url: url)
+
+MVDownloader.shared.downloadTask(request: urlRequest) { (data, error) in
+
+    ...
+    
+    // Process response data 
+    
+    ...
+}
+```
+
 ## Author
 
 Manase Michael, sharkesm@gmail.com
