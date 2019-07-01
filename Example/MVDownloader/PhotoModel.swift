@@ -1,13 +1,13 @@
 //
 //  PhotoModel.swift
-//  MVDownloader
+//  MVDownloader_Example
 //
-//  Created by Manase Michael on 30/06/2019.
+//  Created by Manase Michael on 01/07/2019.
+//  Copyright © 2019 CocoaPods. All rights reserved.
 //
 
 import Foundation
 
-/// To be used for demostration purposes only 
 public struct PhotoModel: Codable {
     var urls: PhotoUrls
 }

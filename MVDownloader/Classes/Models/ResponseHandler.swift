@@ -2,7 +2,7 @@
 //  ResponseHandler.swift
 //  MVDownloader
 //
-//  Created by Sharkes Monken on 30/06/2019.
+//  Created by Manase Michael on 30/06/2019.
 //
 
 import Foundation
@@ -18,7 +18,9 @@ public struct ResponseData {
 public typealias CompletionHandler = (Data?, Error?) -> Void
 
 
-/// Holds reference for unique response handlers
+/// Holds reference for unique response handler and can be utilised with download task `MVDownloaderTask`
+/// to register awaiting closures.
+
 public class ResponseHandler {
     
     let handlerID: String

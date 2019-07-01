@@ -2,7 +2,7 @@
 //  UIImageView+MVDownloader.swift
 //  MVDownloader
 //
-//  Created by Sharkes Monken on 30/06/2019.
+//  Created by Manase Michael on 30/06/2019.
 //
 
 import Foundation
@@ -103,9 +103,15 @@ extension UIImageView {
         
         MVDownloader.shared.downloadImage(from: url) { [weak self] (image, error) in
             
-            guard let `self` = self else { return }
+            guard let `self` = self else {
+                print(error as Any)
+                return
+            }
             
-            guard error == nil else { return }
+            guard error == nil else {
+                print(error as Any)
+                return
+            }
             
             guard let image = image else { return }
             

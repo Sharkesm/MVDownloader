@@ -2,7 +2,7 @@
 //  MVImageCache.swift
 //  MVDownloader
 //
-//  Created by Sharkes Monken on 30/06/2019.
+//  Created by Manase Michael on 30/06/2019.
 //
 
 import Foundation
@@ -12,11 +12,19 @@ import UIKit
 /// Caches `MVImage` temporarily
 public class MVImageCache {
     
-    private var cache: NSCache<NSURL, MVImage>
-    private var cacheQueue: DispatchQueue
+    var cache: NSCache<NSURL, MVImage>
+    var cacheQueue: DispatchQueue
+    
+    static let DefaultImageCacheLimit = 100  // Number of objects cache can store
+    static let DefaultCacheCostLimitInBytes = 30 * 1024 * 1024 // Size in bytes of data is used as cost, 30MB limit
     
     init() {
+        
         cache = NSCache<NSURL, MVImage>()
+        cache.name = "MVImageCacheQueue"
+        cache.countLimit = MVImageCache.DefaultImageCacheLimit
+        cache.totalCostLimit = MVImageCache.DefaultCacheCostLimitInBytes
+            
         cacheQueue = DispatchQueue(label: "MVImageCacheQueue", qos: .userInitiated, attributes: .concurrent)
     }
     
@@ -39,7 +47,7 @@ extension MVImageCache: MVImageCacheProtocol {
     
     
     public func filterImage(withIdentifier identifier: NSURL) -> MVImage? {
-        return cache.object(forKey: identifier)!
+        return cache.object(forKey: identifier)
     }
     
     

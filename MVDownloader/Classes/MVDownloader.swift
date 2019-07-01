@@ -2,19 +2,23 @@
 //  MVDownloader.swift
 //  MVDownloader
 //
-//  Created by Sharkes Monken on 30/06/2019.
+//  Created by Manase Michael on 30/06/2019.
 //
 
 import Foundation
 
 
+/// `MVDownloader` framework
+///
+/// A pure swift library used for downloading images or JSON format files and with caching configuration support
+
 public class MVDownloader {
     
-    private let session: URLSession
-    private let urlCache: URLCache
+    let session: URLSession
+    let urlCache: URLCache
     
-    private let imageCacheManager = MVImageCache()
-    private let downloadTaskService: MVDownloaderTaskService = MVDownloaderTaskService()
+    let imageCacheManager = MVImageCache()
+    let downloadTaskService: MVDownloaderTaskService = MVDownloaderTaskService()
     
     public static var shared: MVDownloader = MVDownloader(urlCache: MVDownloader.defaultURLCache())
     
@@ -132,12 +136,12 @@ public extension MVDownloader {
             guard let `self` = self else { return }
             
             guard error == nil else {
-                self.downloadTaskService.invokeCompletionHandler(for: request, withResponse: ResponseData(data: nil, error:  MVDownloaderError.unknown))
+                self.downloadTaskService.invokeCompletionHandler(for: request, withResponse: ResponseData(data: nil, error:  MVDownloaderError.Generic(error!)))
                 return
             }
             
             guard let data = data else {
-                self.downloadTaskService.invokeCompletionHandler(for: request, withResponse: ResponseData(data: nil, error: MVDownloaderError.responseFailed))
+                self.downloadTaskService.invokeCompletionHandler(for: request, withResponse: ResponseData(data: nil, error: MVDownloaderError.InvalidResponseData))
                 return
             }
             
@@ -168,7 +172,6 @@ public extension MVDownloader {
     
     func downloadImage(from url: URL, completion: @escaping (_ image: MVImage?, _ error: MVDownloaderError?) -> Void) {
         
-        
         // Fetch image from cache only if it has been stored before with the same `URL`
         // Otherwise, proceed with remote request.
         
@@ -184,17 +187,23 @@ public extension MVDownloader {
         downloadTask(request: request) { [weak self] (data, error) in
             
             guard let `self` = self else {
+                completion(nil, .LoaderDeallocated)
                 return
             }
             
             guard error == nil else {
-                completion(nil, .responseFailed)
+                completion(nil, .Generic(error!))
                 return
             }
             
-            guard let data = data, let image = MVImage(data: data) else {
-                completion(nil, .imageConversionFailed)
+            guard let data = data else {
+                completion(nil, .InvalidResponseData)
                 return
+            }
+            
+            guard let image = MVImage(data: data) else {
+                completion(nil, .InvalidImageData)
+                return 
             }
             
             self.imageCacheManager.add(image, withIdentifier: (url as NSURL))
@@ -227,19 +236,20 @@ public extension MVDownloader {
         downloadTask(request: request) { (data, error) in
             
             guard error == nil else {
-                completion(nil, MVDownloaderError.responseFailed)
+                completion(nil, .Generic(error!))
                 return
             }
             
             guard let data = data else {
-                completion(nil, MVDownloaderError.responseFailed)
+                completion(nil, .InvalidResponseData)
                 return
             }
             
-            if let decodedType = try? decoder.decode(T.self, from: data) {
+            do {
+                let decodedType = try decoder.decode(T.self, from: data)
                 completion(decodedType, nil)
-            } else {
-                completion(nil, MVDownloaderError.responseFailed)
+            } catch (let error) {
+                completion(nil, .Generic(error))
             }
             
         }
