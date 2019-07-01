@@ -24,6 +24,11 @@ public class MVDownloaderTaskService {
     }
     
     
+    deinit {
+        activeDownloadTask.removeAll()
+    }
+    
+    
     /// Number of active download task
     ///
     /// - Returns: A number of active downlod task
