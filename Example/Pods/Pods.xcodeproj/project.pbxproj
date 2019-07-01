@@ -173,7 +173,8 @@
 			children = (
 				BA32E112B4327A6907CEFA3DFC9534CD /* UIImageView+MVDownloader.swift */,
 			);
-			path = Views;
+			name = Views;
+			path = MVDownloader/Classes/Views;
 			sourceTree = "<group>";
 		};
 		652A4759131DDE339FFC14EAF6CD8B2E /* Pods-MVDownloader_Tests */ = {
