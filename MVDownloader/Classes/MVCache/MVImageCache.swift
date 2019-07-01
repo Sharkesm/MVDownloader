@@ -12,11 +12,19 @@ import UIKit
 /// Caches `MVImage` temporarily
 public class MVImageCache {
     
-    private var cache: NSCache<NSURL, MVImage>
-    private var cacheQueue: DispatchQueue
+    var cache: NSCache<NSURL, MVImage>
+    var cacheQueue: DispatchQueue
+    
+    static let DefaultImageCacheLimit = 100  // Number of objects cache can store
+    static let DefaultCacheCostLimitInBytes = 30 * 1024 * 1024 // Size in bytes of data is used as cost, 30MB limit
     
     init() {
+        
         cache = NSCache<NSURL, MVImage>()
+        cache.name = "MVImageCacheQueue"
+        cache.countLimit = MVImageCache.DefaultImageCacheLimit
+        cache.totalCostLimit = MVImageCache.DefaultCacheCostLimitInBytes
+            
         cacheQueue = DispatchQueue(label: "MVImageCacheQueue", qos: .userInitiated, attributes: .concurrent)
     }
     

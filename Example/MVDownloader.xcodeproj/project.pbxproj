@@ -14,6 +14,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* MVDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* MVDownloaderTests.swift */; };
+		63527D1422C9AE7200EE9093 /* MVCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63527D1322C9AE7200EE9093 /* MVCacheTests.swift */; };
 		63DAAF9622C911B3009A3157 /* MVDownloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DAAF9522C911B3009A3157 /* MVDownloader.framework */; };
 		63DAAF9A22C9427A009A3157 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DAAF9922C9427A009A3157 /* PhotoModel.swift */; };
 		63DAAF9C22C94336009A3157 /* PhotoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DAAF9B22C94336009A3157 /* PhotoCollectionCell.swift */; };
@@ -43,6 +44,7 @@
 		607FACE51AFB9204008FA782 /* MVDownloader_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVDownloader_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* MVDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVDownloaderTests.swift; sourceTree = "<group>"; };
+		63527D1322C9AE7200EE9093 /* MVCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVCacheTests.swift; sourceTree = "<group>"; };
 		63DAAF9522C911B3009A3157 /* MVDownloader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MVDownloader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63DAAF9922C9427A009A3157 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		63DAAF9B22C94336009A3157 /* PhotoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionCell.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACEB1AFB9204008FA782 /* MVDownloaderTests.swift */,
+				63527D1322C9AE7200EE9093 /* MVCacheTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -397,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACEC1AFB9204008FA782 /* MVDownloaderTests.swift in Sources */,
+				63527D1422C9AE7200EE9093 /* MVCacheTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
