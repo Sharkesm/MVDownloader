@@ -5,7 +5,6 @@
 # MVDownloader
 
 [![Build Status](https://img.shields.io/travis/Sharkesm/master.svg?style=flat)](https://travis-ci.org/Sharkesm/MVDownloader)
-[![Travis CI](https://travis-ci.org/Sharkesm/MVDownloader?branch=master)](https://travis-ci.org/Sharkesm/MVDownloader) 
 [![Pod Version](https://img.shields.io/cocoapods/v/MVDownloader.svg?style=flat)](http://cocoadocs.org/docsets/MVDownloader/)
 [![Pod Platform](https://img.shields.io/cocoapods/p/MVDownloader.svg?style=flat)](http://cocoadocs.org/docsets/MVDownloader/)
 [![Pod License](https://img.shields.io/cocoapods/l/MVDownloader.svg?style=flat)](https://github.com/Sharkesm/MVDownloader/blob/master/LICENSE)
