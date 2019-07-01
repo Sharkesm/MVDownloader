@@ -53,7 +53,7 @@ pod 'MVDownloader'
 ## Usage
 
 ### Shared Instance  
-MVDownloader has a shared instance that can be utilised to access all of exposed methods 
+MVDownloader has a shared instance that can be utilised to access all of the exposed methods
 ```swift
 import MVDownloader 
 
@@ -77,7 +77,7 @@ MVDownloader.shared.downloadImage(from: url) { (mvimage, error) in
 Also, there's another way to download images quickly without the hussle writting longer code blocks of such. Checkout `mv_setImage` example. 
 
 ### Download Image using `mv_setImage`
-MVDownloader library under the hood it extends `UIImageView` and exposes `mv_setUmage(from:_)` method with intention of downloading images and setting them automatically. 
+MVDownloader library under the hood it extends `UIImageView` and exposes `mv_setUmage(from:_)` method with intention of downloading images and setting them automatically and apply animation transition. 
 
 ```swift
 import MVDownloader
