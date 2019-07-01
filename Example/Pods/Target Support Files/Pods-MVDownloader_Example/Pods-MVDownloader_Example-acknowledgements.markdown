@@ -5,7 +5,7 @@ This application makes use of the following third party libraries:
 
 MIT License
 
-Copyright (c) 2019 Sharkes Monken
+Copyright (c) 2019 Manase Michael
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

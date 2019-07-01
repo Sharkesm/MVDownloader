@@ -2,7 +2,7 @@
 //  PhotoCollectionCell.swift
 //  MVDownloader_Example
 //
-//  Created by Sharkes Monken on 01/07/2019.
+//  Created by Manase Michael on 01/07/2019.
 //  Copyright © 2019 CocoaPods. All rights reserved.
 //
 

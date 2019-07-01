@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  MVDownloader
 //
-//  Created by Sharkes Monken on 06/30/2019.
-//  Copyright (c) 2019 Sharkes Monken. All rights reserved.
+//  Created by Manase Michael on 06/30/2019.
+//  Copyright (c) 2019 Manase Michael. All rights reserved.
 //
 
 import UIKit
