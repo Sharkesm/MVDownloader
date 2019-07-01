@@ -39,11 +39,6 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 MVDownloader is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
-
-```ruby
-pod 'MVDownloader'
-```
-Then add `use_frameworks!`  on your project `podfile` to use MVDownloader as dynamic framework:
 ```ruby 
 platform :ios, '10.0'
 use_frameworks!
