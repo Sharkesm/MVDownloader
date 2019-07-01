@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+/// To be used for demostration purposes only 
 public struct PhotoModel: Codable {
     var urls: PhotoUrls
 }

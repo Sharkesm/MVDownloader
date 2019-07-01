@@ -9,7 +9,7 @@
 import UIKit
 import MVDownloader
 
-class ViewController: UIViewController {
+class PhotoListViewController: UIViewController {
     
     // IBOutlet properties
     @IBOutlet weak var collectionView: UICollectionView!
@@ -48,7 +48,9 @@ class ViewController: UIViewController {
 }
 
 
-private extension ViewController {
+// MARK: - Private Methods
+
+private extension PhotoListViewController {
     
     func requestDownloadablePhotoUrls() {
         
@@ -73,7 +75,9 @@ private extension ViewController {
 }
 
 
-extension ViewController: UICollectionViewDataSource {
+// MARK: - UICollectionViewDataSource Methods
+
+extension PhotoListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return downloadablePhotoLinks.count
@@ -95,6 +99,10 @@ extension ViewController: UICollectionViewDataSource {
         return cell
     }
 }
+
+
+
+// MARK: - UICollectionViewDelegateFlowLayout Methods
 
 extension UIViewController: UICollectionViewDelegateFlowLayout {
     

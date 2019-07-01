@@ -18,7 +18,9 @@ public struct ResponseData {
 public typealias CompletionHandler = (Data?, Error?) -> Void
 
 
-/// Holds reference for unique response handlers
+/// Holds reference for unique response handler and can be utilised with download task `MVDownloaderTask`
+/// to register awaiting closures.
+
 public class ResponseHandler {
     
     let handlerID: String

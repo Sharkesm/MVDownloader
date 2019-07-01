@@ -154,7 +154,6 @@
 				6E4DE7DD6A7F5363938840D1A026E271 /* MVImage.swift */,
 				BE642308C54F23F8000D4C7C5E6E6367 /* MVImageCache.swift */,
 				6EFCDA097757D5C330CD4D54C67BB399 /* MVImageCacheProtocol.swift */,
-				BA32E112B4327A6907CEFA3DFC9534CD /* UIImageView+MVDownloader.swift */,
 			);
 			name = MVCache;
 			path = MVDownloader/Classes/MVCache;
@@ -167,6 +166,14 @@
 				652A4759131DDE339FFC14EAF6CD8B2E /* Pods-MVDownloader_Tests */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		63527D0D22C9AA8000EE9093 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA32E112B4327A6907CEFA3DFC9534CD /* UIImageView+MVDownloader.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		652A4759131DDE339FFC14EAF6CD8B2E /* Pods-MVDownloader_Tests */ = {
@@ -206,10 +213,11 @@
 			isa = PBXGroup;
 			children = (
 				741C54C8356CA8B92F0B30A002E8A4D4 /* MVDownloader.swift */,
+				63527D0D22C9AA8000EE9093 /* Views */,
 				31D974B8C908E26E53C7D5E4DE922B97 /* Models */,
 				3F33E38E6DD4B65507D8F59BC84600BF /* MVCache */,
-				FA212BB4F727E47A17CBEC864DE103F1 /* Pod */,
 				E6A35E69B58088CF3F1727B0AABD19F6 /* Services */,
+				FA212BB4F727E47A17CBEC864DE103F1 /* Pod */,
 				FB2AF556A6CFCADF8614138400A40552 /* Support Files */,
 			);
 			name = MVDownloader;

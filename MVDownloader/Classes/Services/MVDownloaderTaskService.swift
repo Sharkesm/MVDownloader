@@ -8,7 +8,11 @@
 import Foundation
 
 
-/// Manages parallel download task sessions
+/// Manages multiple active download task sessions
+///
+/// `MVDownloader` framework can utilise this class to register all active download tasks with
+/// there associated awaiting closures.
+
 public class MVDownloaderTaskService {
     
     // Private methods
@@ -113,19 +117,28 @@ public class MVDownloaderTaskService {
     }
     
     
-    /// Cancels active download taks that matches given `URL` request
+    /// Cancels active download task that matches given `URL` request
     ///
-    /// Incase there's an active download task then it will be cancelled and
-    /// removed completely as active otherwise return.
+    /// Incase there's an active download task then it will be explicitly cancelled
+    /// and invoke all awaiting closure with error response then remove download task completely as active otherwise return.
     ///
     /// - Parameter request: URL request
     
     func cancelDownloadTask(withRequest request: URLRequest) {
         
-        guard let downloadTask = activeDownloadTask[request] else { return }
+        if hasDownloadTask(for: request) {
+            
+            guard let downloadTask = activeDownloadTask[request] else { return }
+            
+            for responseHandler in downloadTask.responseHandlers {
+                responseHandler.value.completion!(nil, MVDownloaderError.RequestCancelledByUser)
+            }
+            
+            downloadTask.task?.cancel()
+            downloadTask.isDownloading = false
+            activeDownloadTask.removeValue(forKey: request)
+        }
         
-        downloadTask.task?.cancel()
-        activeDownloadTask[request] = nil
     }
     
     
@@ -138,11 +151,13 @@ public class MVDownloaderTaskService {
     @discardableResult
     func removeDownloadTask(_ task: MVDownloaderTask) -> MVDownloaderTask? {
         
-        guard let downloadTask = activeDownloadTask[task.request] else { return nil }
+        if !hasDownloadTask(for: task.request) {
+            return nil
+        }
         
-        if let sessionTask = downloadTask.task {
-            sessionTask.cancel()
-            activeDownloadTask[task.request]?.isDownloading = false
+        // Invoke all awaiting closures for this particular download task
+        for responseHandler in task.responseHandlers {
+            responseHandler.value.completion!(nil, MVDownloaderError.RequestCancelledBySYS)
         }
         
         if let removedTask = activeDownloadTask.removeValue(forKey: task.request) {
@@ -158,11 +173,9 @@ public class MVDownloaderTaskService {
     /// - Returns: A boolean value
     @discardableResult
     func removeAll() -> Bool {
+        
         for downloadTask in activeDownloadTask {
-            if let sessionTask = downloadTask.value.task {
-                sessionTask.cancel()
-                _ = activeDownloadTask.removeValue(forKey: downloadTask.key)
-            }
+            _ = removeDownloadTask(downloadTask.value)
         }
         
         return true

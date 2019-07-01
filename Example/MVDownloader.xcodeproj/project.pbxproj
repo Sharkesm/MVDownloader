@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		217E18A6861E7733716C8E77 /* Pods_MVDownloader_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3ABC3CA0EF879A92ADD9DE8 /* Pods_MVDownloader_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
+		607FACD81AFB9204008FA782 /* PhotoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* PhotoListViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
@@ -36,7 +36,7 @@
 		607FACD01AFB9204008FA782 /* MVDownloader_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVDownloader_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		607FACD71AFB9204008FA782 /* PhotoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -100,11 +100,11 @@
 		607FACD21AFB9204008FA782 /* Example for MVDownloader */ = {
 			isa = PBXGroup;
 			children = (
+				63527D1222C9AC8100EE9093 /* Storyboards */,
+				63527D1022C9AC6000EE9093 /* Models */,
+				63527D0F22C9AC4F00EE9093 /* Controllers */,
+				63527D0E22C9AC4300EE9093 /* Views */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				63DAAF9922C9427A009A3157 /* PhotoModel.swift */,
-				63DAAF9B22C94336009A3157 /* PhotoCollectionCell.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -146,6 +146,46 @@
 				542E6CB4F44AACA54A8AD737 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		63527D0E22C9AC4300EE9093 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				63527D1122C9AC7100EE9093 /* Cells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		63527D0F22C9AC4F00EE9093 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD71AFB9204008FA782 /* PhotoListViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		63527D1022C9AC6000EE9093 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				63DAAF9922C9427A009A3157 /* PhotoModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		63527D1122C9AC7100EE9093 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				63DAAF9B22C94336009A3157 /* PhotoCollectionCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		63527D1222C9AC8100EE9093 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 		95274F7F6AE1B78025E71638 /* Pods */ = {
@@ -346,7 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63DAAF9A22C9427A009A3157 /* PhotoModel.swift in Sources */,
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				607FACD81AFB9204008FA782 /* PhotoListViewController.swift in Sources */,
 				63DAAF9C22C94336009A3157 /* PhotoCollectionCell.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
