@@ -14,17 +14,17 @@ MVDownloader is a native swift library for making asynchrouns remote requests to
 
 ## Features 
 - [x] Asynchronous image downloading and caching.
-- [x] Supports parallel remote requests and caches URL responses 
-- [x] Cancelable downloading and re-using resume data from previous requests 
-- [x] Fetching of images form cache to improve performance and experience 
-- [x] Built-in transition animation when setting images 
-- [x] Placeholder replacement support 
-- [x] Guarantee same URL request won't be fired several times 
-- [x] Custom cache control and configuration 
-- [x] Guarantee invalid URL won't be fired 
+- [x] Supports parallel remote requests and caches URL responses
+- [x] Cancelable downloading and re-using resume data from previous requests
+- [x] Fetching of images from the cache to improve performance and experience
+- [x] Built-in transition animation when setting images
+- [x] Supports image placeholder support
+- [x] Guarantee same URL request won't be fired several times
+- [x] Custom cache control and configuration
+- [x] Guarantee invalid URL won't be fired
 - [x] Guarantee main thread won't be blocked
-- [x] Extends UIImageView and exposes usable methods that support quick way to download images 
-- [x] Multiple resources accessing same resource will be backed with the same response 
+- [x] Extends UIImageView and exposes usable methods that support a quick way to download images
+- [x] Multiple resources accessing the same resource will be backed up with the same response
 - [x] Supports decoding of instances of a data type from JSON objects.
 - [x] Uses GRC under the hood 
 
