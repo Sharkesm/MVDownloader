@@ -22,6 +22,7 @@ cache: cocoapods
 podfile: Example/Podfile
 before_install: 
 - gem install cocoapods
+- pod repo update
 
 env:
   matrix: 

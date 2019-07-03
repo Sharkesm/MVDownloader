@@ -53,7 +53,7 @@ pod 'MVDownloader'
 ## Usage
 
 ### Shared Instance  
-MVDownloader has a shared instance that can be utilised to access all of the exposed methods.
+MVDownloader has a shared instance that can be utilised to access all of the exposed API methods.
 ```swift
 import MVDownloader 
 
@@ -63,10 +63,12 @@ By default the library will cache all responses from all given URL requests and 
  You can still configure a custom `NSCache` object with different storage capacity by initiating `MVDownloader.init(urlCache:_)` with defined cache.  
 
 ### Download Image
-Downloading images using the library can be as easy as providing a proper `URL` request to `downloadImage(from:_, comepletion:_)` method 
+Downloading images using the library can be as easy as providing a proper `URL` request to `requestImage(from:_, comepletion:_)` method 
 and takes over the process of downloading and converting response data to `MVImage` a type of `UIImage`. 
 ```swift 
 import MVDownloader 
+
+let url = URL(string:"https://techcrunch.com/wp-content/uploads/2015/04/codecode.jpg?w=1390&crop=1")!
 
 MVDownloader.shared.downloadImage(from: url) { (mvimage, error) in
     
@@ -84,6 +86,7 @@ MVDownloader library under the hood it extends `UIImageView` and exposes `mv_set
 ```swift
 import MVDownloader
 
+let url = URL(string:"https://techcrunch.com/wp-content/uploads/2015/04/codecode.jpg?w=1390&crop=1")!
 let imageView = UIImageView()
 
 imageView.mv_setImage(from: url) // Downloads image and sets downloaded image under the hood 
@@ -121,6 +124,33 @@ MVDownloader.shared.requestDecodable(type: PhotoUrls.self, from: pasteBinUrl) { 
 }
 ```
 
+### Cancel Active Request 
+Active remote request can still be cancelled and removed completely from active download task collection list. 
+```swift 
+import MVDownloader 
+
+let url = URL(string: "www.google.com")!
+let urlRequest = URLRequest(url: url)
+
+let downloader = MVDownloader.shared 
+
+// Active request on progress 
+downloader.request(urlRequest) { (data, error) in 
+    ...
+    // Proceed with data extraction
+    ...
+}
+
+
+// Cancelling active request using there associated `URL` request 
+let requestDidCancel = downloader.cancelRequest(for: url)
+
+// Check if request is successfully cancelled 
+if requestDidCancel {
+    ...
+}
+```
+
 ### Normal Remote Request 
 Another benefit for this library is that it's not limited to download JSON and Image only. But you can also still make normal requests to the network. 
 ```swift 
@@ -129,12 +159,9 @@ import MVDownloader
 let url = URL(string: "www.google.com")!
 let urlRequest = URLRequest(url: url)
 
-MVDownloader.shared.downloadTask(request: urlRequest) { (data, error) in
-
+MVDownloader.shared.request(urlRequest) { (data, error) in
     ...
-    
     // Process response data 
-    
     ...
 }
 ```

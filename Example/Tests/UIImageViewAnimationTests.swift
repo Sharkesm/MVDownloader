@@ -24,7 +24,7 @@ class MockUIImageViewSetImage {
     
     static func mock_setImage(from url: URL, completion: @escaping (MVImage?, MVDownloaderError?) -> Void) {
         
-        MVDownloader.shared.downloadImage(from: url) { (image, error) in
+        MVDownloader.shared.requestImage(from: url) { (image, error) in
             completion(image, error)
         }
     }

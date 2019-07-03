@@ -82,6 +82,19 @@ public extension MVDownloader {
     }
     
     
+    /// Cancels download task of a given URL request then returns download task state
+    ///
+    /// - Parameter url: URL request
+    @discardableResult
+    func cancelRequest(for url: URL) -> Bool {
+        let request = URLRequest(url: url)
+        
+        downloadTaskService.cancelDownloadTask(withRequest: request)
+        
+        return !downloadTaskService.hasDownloadTask(for: request)
+    }
+    
+    
     /// Asynchrounsly performs a data task request and manages parallel requests
     ///
     ///  - Note:
@@ -113,7 +126,7 @@ public extension MVDownloader {
     ///     - request:    URL request
     ///     - completion: A closure handler to be invoked upon network request completes.
     
-    func downloadTask(request: URLRequest, completion: @escaping CompletionHandler) {
+    func request(_ request: URLRequest, completion: @escaping CompletionHandler) {
         
         // 1
         let handlerID = ResponseHandler.getUniqueHandlerID()
@@ -170,7 +183,7 @@ public extension MVDownloader {
     ///     - url:         URL request
     ///     - completion:  A closure handler to be invoked upon image request has completed.
     
-    func downloadImage(from url: URL, completion: @escaping (_ image: MVImage?, _ error: MVDownloaderError?) -> Void) {
+    func requestImage(from url: URL, completion: @escaping (_ image: MVImage?, _ error: MVDownloaderError?) -> Void) {
         
         // Fetch image from cache only if it has been stored before with the same `URL`
         // Otherwise, proceed with remote request.
@@ -184,7 +197,7 @@ public extension MVDownloader {
         
         let request = URLRequest(url: url)
         
-        downloadTask(request: request) { [weak self] (data, error) in
+        self.request(request) { [weak self] (data, error) in
             
             guard let `self` = self else {
                 completion(nil, .LoaderDeallocated)
@@ -233,7 +246,7 @@ public extension MVDownloader {
         
         let request = URLRequest(url: url)
         
-        downloadTask(request: request) { (data, error) in
+        self.request(request) { (data, error) in
             
             guard error == nil else {
                 completion(nil, .Generic(error!))
