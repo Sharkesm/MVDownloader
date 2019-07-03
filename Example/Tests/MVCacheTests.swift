@@ -42,6 +42,8 @@ class MVCacheTests: XCTestCase {
         
         imageCache.add(mvimage, withIdentifier: testURL)
         
+        sleep(5)
+        
         XCTAssertTrue(imageCache.isImageCached(withIdentifier: testURL) == .available, "Should not fail since image was cached")
     }
     
@@ -60,6 +62,8 @@ class MVCacheTests: XCTestCase {
         let testURL = NSURL(string: "www.github.com")!
         
         imageCache.add(mvimage, withIdentifier: testURL)
+        
+        sleep(5)
         
         XCTAssertNotNil(imageCache.filterImage(withIdentifier: testURL), "Should not be nil since we are expecting a match")
     }
@@ -85,6 +89,8 @@ class MVCacheTests: XCTestCase {
         
         imageCache.add(mvimage, withIdentifier: testURL)
         
+        sleep(5)
+        
         XCTAssertTrue(imageCache.isImageCached(withIdentifier: testURL) == .available, "Should not fail since image was cached")
         
         XCTAssertTrue(imageCache.removeImage(withIdentifier: testURL), "Cached image should have been removed by then")
@@ -102,6 +108,8 @@ class MVCacheTests: XCTestCase {
         imageCache.clearCache()
         
         imageCache.add(mvimage, withIdentifier: testURL1)
+        
+        sleep(5)
         
         XCTAssertTrue(imageCache.isImageCached(withIdentifier: testURL1) == .available, "Should not fail since image was cached")
         
@@ -124,6 +132,8 @@ class MVCacheTests: XCTestCase {
         imageCache.add(mvimage1, withIdentifier: testURL1)
         imageCache.add(mvimage2, withIdentifier: testURL2)
         imageCache.add(mvimage3, withIdentifier: testURL3)
+        
+        sleep(5)
         
         XCTAssertTrue(imageCache.isImageCached(withIdentifier: testURL1) == .available, "Should not fail since image was cached")
         XCTAssertTrue(imageCache.isImageCached(withIdentifier: testURL2) == .available, "Should not fail since image was cached")

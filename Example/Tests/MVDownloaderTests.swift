@@ -69,7 +69,7 @@ class MVDownloaderTests: XCTestCase {
         let expectation = self.expectation(description: "Google request should be successfull")
         var expectedData: Data?
         
-        downloader.downloadTask(request: googleRequest) { (data, error) in
+        downloader.request(googleRequest) { (data, error) in
             expectedData = data
             expectation.fulfill()
         }
@@ -92,11 +92,11 @@ class MVDownloaderTests: XCTestCase {
         let expectation1 = self.expectation(description: "First image request should be succesful")
         let expectation2 = self.expectation(description: "Second image request should be succesful")
         
-        downloader.downloadTask(request: URLRequest(url: imageRequest1 as URL)) { (_, _) in
+        downloader.request(URLRequest(url: imageRequest1 as URL)) { (_, _) in
             expectation1.fulfill()
         }
         
-        downloader.downloadTask(request: URLRequest(url: imageRequest2 as URL)) { (_, _) in
+        downloader.request(URLRequest(url: imageRequest2 as URL)) { (_, _) in
             expectation2.fulfill()
         }
         
@@ -121,11 +121,11 @@ class MVDownloaderTests: XCTestCase {
         let expectation1 = self.expectation(description: "First image request should be succesful")
         let expectation2 = self.expectation(description: "Second image request should be succesful")
         
-        downloader.downloadTask(request: URLRequest(url: imageRequest1 as URL)) { (_, _) in
+        downloader.request(URLRequest(url: imageRequest1 as URL)) { (_, _) in
             expectation1.fulfill()
         }
         
-        downloader.downloadTask(request: URLRequest(url: imageRequest2 as URL)) { (_, _) in
+        downloader.request(URLRequest(url: imageRequest2 as URL)) { (_, _) in
             expectation2.fulfill()
         }
         
@@ -142,13 +142,39 @@ class MVDownloaderTests: XCTestCase {
     }
     
     
+    func testCancelRequest() {
+        
+        let request = URLRequest(url: imageRequest1 as URL)
+        let expectation = self.expectation(description: "First request should be successful")
+        let handerID = ResponseHandler.getUniqueHandlerID()
+        
+        let responseHandler = ResponseHandler(handlerID: handerID) { (_, error) in
+            XCTAssertNotNil(error, "Download request was cancelled")
+            
+            expectation.fulfill()
+        }
+        
+        let downloadTask = MVDownloaderTask(request, handlerID: handerID, responseHandler: responseHandler)
+        
+        downloader.downloadTaskService.addDownloadTask(downloadTask)
+        
+        let requestDidCancel = downloader.cancelRequest(for: request.url!)
+        
+        waitForExpectations(timeout: 5.0, handler: nil)
+        
+        XCTAssertFalse(downloader.downloadTaskService.hasDownloadTask(for: request), "Download request is not active")
+        XCTAssert(requestDidCancel, "Download request should been cancelled by now")
+        
+    }
+  
+    
     func testDownloadImageWithValidRequest() {
         
         let expectation = self.expectation(description: "Request should respond with an image of `MVImage` type")
         
         var expectedImage: MVImage?
         
-        downloader.downloadImage(from: imageRequest1 as URL) { (mvimage, error) in
+        downloader.requestImage(from: imageRequest1 as URL) { (mvimage, error) in
             expectedImage = mvimage
             expectation.fulfill()
         }
@@ -168,7 +194,7 @@ class MVDownloaderTests: XCTestCase {
         
         var expectedError: Error?
         
-        downloader.downloadImage(from: imageRequest) { (mvimage, error) in
+        downloader.requestImage(from: imageRequest) { (mvimage, error) in
             expectedError = error
             expectation.fulfill()
         }
@@ -183,7 +209,7 @@ class MVDownloaderTests: XCTestCase {
         
         let expectation1 = self.expectation(description: "Request is successfull and cached an image")
         
-        downloader.downloadImage(from: imageRequest1 as URL) { (mvimage, error) in
+        downloader.requestImage(from: imageRequest1 as URL) { (mvimage, error) in
             expectation1.fulfill()
         }
         
@@ -201,7 +227,7 @@ class MVDownloaderTests: XCTestCase {
         
         let expectation1 = self.expectation(description: "Request is successfull and cached an image")
         
-        downloader.downloadImage(from: imageRequest1 as URL) { (mvimage, error) in
+        downloader.requestImage(from: imageRequest1 as URL) { (mvimage, error) in
             expectation1.fulfill()
         }
         
@@ -221,11 +247,11 @@ class MVDownloaderTests: XCTestCase {
         let expectation1 = self.expectation(description: "Request is successful")
         let expectation2 = self.expectation(description: "Request is successful")
         
-        downloader.downloadTask(request: URLRequest(url: imageRequest1 as URL)) { (_, _) in
+        downloader.request(URLRequest(url: imageRequest1 as URL)) { (_, _) in
             expectation1.fulfill()
         }
         
-        downloader.downloadTask(request: URLRequest(url: imageRequest2 as URL)) { (_, _) in
+        downloader.request(URLRequest(url: imageRequest2 as URL)) { (_, _) in
             expectation2.fulfill()
         }
         
@@ -242,11 +268,11 @@ class MVDownloaderTests: XCTestCase {
         let expectation1 = self.expectation(description: "Request is successful")
         let expectation2 = self.expectation(description: "Request is successful")
         
-        downloader.downloadTask(request: URLRequest(url: imageRequest1 as URL)) { (_, _) in
+        downloader.request(URLRequest(url: imageRequest1 as URL)) { (_, _) in
             expectation1.fulfill()
         }
         
-        downloader.downloadTask(request: URLRequest(url: imageRequest1 as URL)) { (_, _) in
+        downloader.request(URLRequest(url: imageRequest1 as URL)) { (_, _) in
             expectation2.fulfill()
         }
         

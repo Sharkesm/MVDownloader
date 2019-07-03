@@ -81,6 +81,16 @@ public extension MVDownloader {
         urlCache.removeAllCachedResponses()
     }
     
+    @discardableResult
+    func cancelRequest(for url: URL) -> Bool {
+        
+        let request = URLRequest(url: url)
+        
+        downloadTaskService.cancelDownloadTask(withRequest: request)
+        
+        return downloadTaskService.hasDownloadTask(for: request)
+        
+    }
     
     /// Asynchrounsly performs a data task request and manages parallel requests
     ///
