@@ -2,17 +2,6 @@
 # * https://www.objc.io/issues/6-build-tools/travis-ci/
 # * https://github.com/supermarin/xcpretty#usage
 
-#osx_image: xcode7.3
-#language: objective-c
-# cache: cocoapods
-# podfile: Example/Podfile
-# before_install:
-# - gem install cocoapods # Since Travis is not always on latest version
-# - pod install --project-directory=Example
-#script:
-#- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/MVDownloader.xcworkspace -scheme MVDownloader-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
-#- pod lib lint
-
 language: swift
 
 os: osx
@@ -23,6 +12,7 @@ podfile: Example/Podfile
 before_install: 
 - gem install cocoapods
 - pod repo update
+- pod install --project-directory=Example
 
 env:
   matrix: 
@@ -30,14 +20,19 @@ env:
 
 script:
   - set -o pipefail && xcodebuild -version
-  - set -o pipefail && xcodebuild -showsdks 
-  - set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/MVDownloader.xcworkspace -scheme MVDownloader-Example -sdk $TEST_SDK -destination "platform=iOS Simulator,OS=$OS,name=$NAME" ONLY_ACTIVE_ARCH=YES
-  - pod lib lint MVDownloader.podspec 
+  - set -o pipefail && xcodebuild -showsdks
+  - set -o pipefail && xcodebuild -showdestinations -workspace Example/MVDownloader.xcworkspace -scheme MVDownloader-Example 
+  - set -o pipefail && xcodebuild test -enableCodeCoverage YES -destination 'platform=iOS Simulator,OS=12.2,name=iPhone X' -workspace Example/MVDownloader.xcworkspace -scheme MVDownloader-Example ONLY_ACTIVE_ARCH=NO
+- pod lib lint MVDownloader.podspec 
  
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -t 77da8681-2751-43ad-90dc-92534067d0b3
+
 notifications:
   email:
     recipients:
-      - sharkesm@gmail.com
+      - one@example.com
+      - other@example.com
     on_success: always 
-    on_failure: never 
+    on_failure: always 
 
