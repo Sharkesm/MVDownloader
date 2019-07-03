@@ -70,7 +70,7 @@ import MVDownloader
 
 let url = URL(string:"https://techcrunch.com/wp-content/uploads/2015/04/codecode.jpg?w=1390&crop=1")!
 
-MVDownloader.shared.downloadImage(from: url) { (mvimage, error) in
+MVDownloader.shared.requestImage(from: url) { (mvimage, error) in
     
     if let downloadedImage = mvimage {
        print("Downloaded image: ", downloadedImage)
