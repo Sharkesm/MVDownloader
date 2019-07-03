@@ -70,7 +70,7 @@ import MVDownloader
 
 let url = URL(string:"https://techcrunch.com/wp-content/uploads/2015/04/codecode.jpg?w=1390&crop=1")!
 
-MVDownloader.shared.downloadImage(from: url) { (mvimage, error) in
+MVDownloader.shared.requestImage(from: url) { (mvimage, error) in
     
     if let downloadedImage = mvimage {
        print("Downloaded image: ", downloadedImage)
@@ -89,7 +89,10 @@ import MVDownloader
 let url = URL(string:"https://techcrunch.com/wp-content/uploads/2015/04/codecode.jpg?w=1390&crop=1")!
 let imageView = UIImageView()
 
-imageView.mv_setImage(from: url) // Downloads image and sets downloaded image under the hood 
+// Downloads image and sets it automatically 
+imageView.mv_setImage(from: url) { (error) in 
+  ...
+}  
 ```
 
 ### Download JSON 
@@ -124,6 +127,21 @@ MVDownloader.shared.requestDecodable(type: PhotoUrls.self, from: pasteBinUrl) { 
 }
 ```
 
+### Normal Remote Request 
+Another benefit for this library is that it's not limited to download JSON and Image only. But you can also still make normal requests to the network. 
+```swift 
+import MVDownloader 
+
+let url = URL(string: "www.google.com")!
+let urlRequest = URLRequest(url: url)
+
+MVDownloader.shared.request(urlRequest) { (data, error) in
+    ...
+    // Process response data 
+    ...
+}
+```
+
 ### Cancel Active Request 
 Active remote request can still be cancelled and removed completely from active download task collection list. 
 ```swift 
@@ -147,21 +165,6 @@ let requestDidCancel = downloader.cancelRequest(for: url)
 
 // Check if request is successfully cancelled 
 if requestDidCancel {
-    ...
-}
-```
-
-### Normal Remote Request 
-Another benefit for this library is that it's not limited to download JSON and Image only. But you can also still make normal requests to the network. 
-```swift 
-import MVDownloader 
-
-let url = URL(string: "www.google.com")!
-let urlRequest = URLRequest(url: url)
-
-MVDownloader.shared.request(urlRequest) { (data, error) in
-    ...
-    // Process response data 
     ...
 }
 ```
