@@ -14,15 +14,11 @@ before_install:
 - pod repo update
 - pod install --project-directory=Example
 
-env:
-  matrix: 
-    - TEST_SDK=iphonesimulator12.2 OS=12.2 NAME='iPhone 7' 
-
 script:
   - set -o pipefail && xcodebuild -version
   - set -o pipefail && xcodebuild -showsdks
   - set -o pipefail && xcodebuild -showdestinations -workspace Example/MVDownloader.xcworkspace -scheme MVDownloader-Example 
-  - set -o pipefail && xcodebuild test -enableCodeCoverage YES -destination 'platform=iOS Simulator,OS=12.2,name=iPhone X' -workspace Example/MVDownloader.xcworkspace -scheme MVDownloader-Example ONLY_ACTIVE_ARCH=NO
+  - set -o pipefail && xcodebuild test -enableCodeCoverage YES -destination 'platform=iOS Simulator,OS=12.2,name=iPhone 7' -workspace Example/MVDownloader.xcworkspace -scheme MVDownloader-Example ONLY_ACTIVE_ARCH=NO
 - pod lib lint MVDownloader.podspec 
  
 after_success:
@@ -31,8 +27,7 @@ after_success:
 notifications:
   email:
     recipients:
-      - one@example.com
-      - other@example.com
+      - sharkesm@gmail.com
     on_success: always 
     on_failure: always 
 
