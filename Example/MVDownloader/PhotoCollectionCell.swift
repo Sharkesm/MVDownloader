@@ -19,7 +19,7 @@ class PhotoCollectionCell: UICollectionViewCell {
     }
     
     func configureImage(withURL url: URL) {
-        imageView.mv_setImage(from: url) { (_) in }
+        imageView.mv_setImage(from: url, nil)
     }
     
 }

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MVDownloader'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'Swift library used for downloading images or JSON format files with caching configuration support'
   s.swift_version    = '5.0'
   

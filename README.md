@@ -10,7 +10,7 @@
 [![Pod License](https://img.shields.io/cocoapods/l/MVDownloader.svg?style=flat)](https://github.com/Sharkesm/MVDownloader/blob/master/LICENSE)
 [![Repo Size](https://img.shields.io/github/repo-size/Sharkesm/MVDownloader.svg)](http://cocoadocs.org/docsets/MVDownloader/)
 
-MVDownloader is a native swift library for making asynchrouns remote requests to download images or JSON format files from the web. 
+MVDownloader is a native swift library for making asynchronous remote requests to download images or JSON format files from the web. 
 
 ## Features 
 - [x] Asynchronous image downloading and caching.
