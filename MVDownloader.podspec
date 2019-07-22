@@ -27,7 +27,6 @@ MVDownloader is a native swift library for making asychronous remote requests to
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Manase Michael Mhando' => 'sharkesm@gmail.com' }
   s.source           = { :git => 'https://github.com/Sharkesm/MVDownloader.git', :tag => s.version.to_s }
-  s.social_media_url = 'https://twitter.com/sharke12'
 
   s.ios.deployment_target = '10.0'
 
