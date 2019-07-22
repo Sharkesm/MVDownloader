@@ -11,6 +11,11 @@ class MVDownloaderTests: XCTestCase {
     let imageRequest2 = NSURL(string: "https://images.unsplash.com/photo-1464536194743-0c49f0766ef6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=f1126fb88744998f54efbae390fd7b67")!
     
     
+    struct InvalidJSON: Codable {
+        var def: String
+    }
+    
+    
     override func setUp() {
         super.setUp()
         downloader.clearAllCache()
@@ -306,10 +311,6 @@ class MVDownloaderTests: XCTestCase {
     
     
     func testDecodableRequestWithInvalidModel() {
-        
-        struct InvalidJSON: Codable {
-           var def: String
-        }
         
         let request = URL(string: "https://pastebin.com/raw/wgkJgazE")!
         let expectation = self.expectation(description: "JSON request is successfull and decode instance of type")

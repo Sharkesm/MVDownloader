@@ -96,19 +96,21 @@ extension UIImageView {
     
     ///     - animationOption:   The image transitioning effect to be applied while setting image.
     ///                             Defaults to  `MVImageTransition.crossDissolve(1.0)`.
+    ///
+    ///     - completion: An optional closure handler with error response 
     
-    public func mv_setImage(from url: URL, placeholderImage: UIImage? = UIImage(named: "placeholder"), animationOption: MVImageTransition = MVImageTransition.crossDissolve(1.0), completion: @escaping (Error?) -> Void) {
+    public func mv_setImage(from url: URL, placeholderImage: UIImage? = UIImage(named: "placeholder"), animationOption: MVImageTransition = MVImageTransition.crossDissolve(1.0), _ completion: ((Error?) -> Void)?) {
         
         self.image = placeholderImage
         
         MVDownloader.shared.requestImage(from: url) { [weak self] (image, error) in
             
             guard let `self` = self else {
-                completion(error)
+                completion?(error)
                 return }
             
             guard error == nil else {
-                completion(error)
+                completion?(error)
                 return
             }
             
