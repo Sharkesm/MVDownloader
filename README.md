@@ -177,6 +177,24 @@ if requestDidCancel {
 }
 ```
 
+### Clear Cache
+An entire cache can be easily cleared up by simply invoking the following method `clearAllCache()`
+```swift 
+ MVDownloader.shared.clearAllCache()
+```
+
+Clearing up a specific request from the cache can be achieved by the following method ``
+```swift 
+
+guard let url = URL(string:"https://techcrunch.com/wp-content/uploads/2015/04/codecode.jpg?w=1390&crop=1") else {
+    print("Given url is invalid")
+    return 
+}
+
+MVDownloader.shared.clearCache(for: url)
+```
+
+
 ## Author
 
 Manase Michael, sharkesm@gmail.com
