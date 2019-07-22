@@ -86,7 +86,11 @@ MVDownloader library under the hood it extends `UIImageView` and exposes `mv_set
 ```swift
 import MVDownloader
 
-let url = URL(string:"https://techcrunch.com/wp-content/uploads/2015/04/codecode.jpg?w=1390&crop=1")!
+guard let url = URL(string:"https://techcrunch.com/wp-content/uploads/2015/04/codecode.jpg?w=1390&crop=1") else {
+    print("Given url is invalid")
+    return 
+}
+
 let imageView = UIImageView()
 
 // Downloads image and sets it automatically 
@@ -102,8 +106,11 @@ Decoding of instances of a particular type from JSON objects can be smootly exec
 import MVDownloader
 
 /// A type that can convert itself into and out of an external representation.
+public struct PhotoModel: Codable {
+    var urls: PhotoUrls
+}
 
-struct PhotoUrls: Codable {
+public struct PhotoUrls: Codable {
     var raw: String
     var full: String
     var regular: String
@@ -112,14 +119,15 @@ struct PhotoUrls: Codable {
 }
 
 
-guard let pasteBinUrl = URL(string:"https://images.unsplash.com/photo-1464550883968-cec281c19761?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=400&fit=max&s=d5682032c546a3520465f2965cde1cec") else {
+guard let pasteBinUrl =
+URL(string:"https://images.unsplash.com/photo-1464550883968-cec281c19761?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=400&fit=max&s=d5682032c546a3520465f2965cde1cec") else {
 print("Given url is invalid")
 return 
 }
 
 /// By default, below function utilises `JSONDecoder` object to decode instances of a data type from JSON objects.  
 
-MVDownloader.shared.requestDecodable(type: PhotoUrls.self, from: pasteBinUrl) { (data, error) in
+MVDownloader.shared.requestDecodable(type: [PhotoModel].self, from: pasteBinUrl) { (data, error) in
 
     ...
     // Proceed with data extraction 
